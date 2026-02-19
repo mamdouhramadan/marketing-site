@@ -1,9 +1,1 @@
-$hero-height : 600px;
-$padding-v : 55px 0;
-
-@for $i from 3 through 10 {
-    .heading-x#{$i} {
-      font-size: 8 * $i - 2 + px;
-    }
-  }
-  
+// Legacy variables (no longer used; section/typography styles use Tailwind)

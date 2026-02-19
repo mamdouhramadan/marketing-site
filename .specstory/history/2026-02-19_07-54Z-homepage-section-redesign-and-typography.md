@@ -2044,11 +2044,182 @@ Adding a Google Map embed and a two-column contact form with a full-width textar
 
 <details><summary>Tool use: **edit_file_v2** • Edit file: /Users/mamdouhramadan/Documents/trufla-task/dev/pages/contact.pug</summary>
 
-Status: **loading**
-
 </details>
 
 </tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+Done. I added:
+1. Google Map section with a "Find us" heading and an iframe embed (New York, NY as placeholder for "221b Elementary Avenue, NY"). The map is in a rounded container with aspect ratio and accessible title.
+2. Contact form with:
+   - 2-column grid on md+: Name + Email in first row, Phone + Subject in second row (each pair in one row)
+   - Full-width textarea for Message
+   - Full-width submit button (or auto width on md+ with min-width)
+
+Let me verify the build works.
+</details></think>
+
+---
+
+
+
+
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/mamdouhramadan/Documents/trufla-task && npx gulp html</summary>
+
+```bash
+cd /Users/mamdouhramadan/Documents/trufla-task && npx gulp html
+```
+
+```
+[17:32:20] Using gulpfile [35m~/Documents/trufla-task/gulpfile.js[39m
+[17:32:20] Starting '[36mhtml[39m'...
+[17:32:20] [36mgulp-notify[39m: [[34mGulp notification[39m] [32mHTML Done![39m
+[17:32:20] [36mgulp-notify[39m: [[34mGulp notification[39m] [32mHTML Done![39m
+[17:32:20] [36mgulp-notify[39m: [[34mGulp notification[39m] [32mHTML Done![39m
+[17:32:20] [36mgulp-notify[39m: [[34mGulp notification[39m] [32mHTML Done![39m
+[17:32:20] [36mgulp-notify[39m: [[34mGulp notification[39m] [32mHTML Done![39m
+[17:32:20] Finished '[36mhtml[39m' after [35m277 ms[39m
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+Build succeeded. Summary for the user.
+</details></think>
+
+---
+
+
+Summary of what was added to the contact page:
+
+### 1. **Google Map**
+- **Section** with heading “Find us”.
+- **Embed**: iframe using Google Maps embed (New York, NY as a stand-in for “221b Elementary Avenue, NY”).
+- **Styling**: rounded container, 16/10 aspect ratio, min height 240px, border; iframe is `loading="lazy"` and has an accessible `title`.
+- To show your real address: open Google Maps → search your address → Share → “Embed a map” → copy the `src` and replace the current `src` in the iframe in `contact.pug`.
+
+### 2. **Contact form**
+- **Section** with heading “Send us a message”.
+- **Two-column layout** (on `md` and up) for:
+  - **Row 1:** Name (left), Email (right)
+  - **Row 2:** Phone (left), Subject (right)
+- **Full-width**:
+  - **Message** textarea (full width, 5 rows, `min-height` 120px, vertical resize only).
+  - **Send message** button (full width on small screens, auto width with min-width on `md+`).
+- **Fields**: labels, placeholders, `required` on Name, Email, and Message; shared styles (borders, focus ring, dark mode).
+- **Form**: `action="#"` and `method="post"`; you can point `action` to your backend or a form service later.
+
+Layout uses Tailwind: `grid grid-cols-1 md:grid-cols-2 gap-6` for the 2-column fields and a single full-width block for the textarea and button.
+
+---
+
+_**User**_
+
+please order the section based on the commn order for the websites , @dev/pages/index.pug
+ about after hero section , temas before testimonials...etc 
+
+And please apply the style based on the tailwind classes and remove it from @dev/scss/scss_utilites/_style.scss files 
+to make all the styles consistance 
+
+---
+
+_**Agent (model default, mode Agent)**_
+
+<think><details><summary>Thought Process</summary>
+
+The user wants two things:
+
+1. **Reorder sections on the home page (index.pug)** to follow a common website order. Typical order is:
+   - Hero
+   - About (intro/about the company)
+   - Services/Features (or "Why Choose" / "How We Support" type content)
+   - Team
+   - Testimonials
+   - Clients/Partners (logo strip)
+   - Contact CTA or footer
+
+   So the user said: "about after hero section, teams before testimonials". So the order should be something like:
+   - Hero
+   - About (the "About our apps" section)
+   - Why Choose truWeb / How We Support You (section-three)
+   - Team
+   - Testimonials
+   - Clients (marquee)
+
+   Let me read the current index.pug to see the exact sections and their order, then reorder them.
+
+2. **Move styles from SCSS to Tailwind** - Apply styles using Tailwind classes and remove them from the SCSS files (specifically dev/scss/scss_utilites/_style.scss and related) to make everything consistent with Tailwind.
+
+Let me start by reading the full index.pug and the SCSS files to understand the current structure and what needs to be migrated.
+</details></think>
+
+---
+
+
+Reordering the home page sections and migrating styles to Tailwind. Checking the current structure and SCSS:
+
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/mamdouhramadan/Documents/trufla-task/dev/pages/index.pug</summary>
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/mamdouhramadan/Documents/trufla-task/dev/scss/main.scss</summary>
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/mamdouhramadan/Documents/trufla-task/dev/scss/scss_utilites/_style.scss</summary>
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/mamdouhramadan/Documents/trufla-task/dev/scss/scss_utilites/_theme.scss</summary>
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/mamdouhramadan/Documents/trufla-task/dev/scss/scss_utilites/_variables.scss</summary>
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+
+Now I understand. The user wants:
+
+1. **Reorder index.pug** to a common website flow:
+   - Hero
+   - About (About our apps) — right after hero
+   - Why Choose / How We Support (section-three) — services</details></think>
 
 ---
 

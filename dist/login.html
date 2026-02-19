@@ -140,7 +140,35 @@
             </svg></a></div>
       </div>
     </footer>
-    <button class="scroll-top fixed bottom-4 left-4 w-12 h-12 rounded bg-primary text-white text-2xl flex items-center justify-center cursor-pointer transition-colors hover:bg-secondary border-none hidden" type="button" aria-label="Scroll to top" title="Scroll to top"><span class="icon fa fa-angle-up" aria-hidden="true"></span></button>
+    <button class="scroll-top fixed bottom-4 left-4 w-12 h-12 rounded bg-primary text-white text-2xl flex items-center justify-center cursor-pointer transition-colors hover:bg-secondary border-none hidden focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 motion-reduce:transition-none" type="button" aria-label="Scroll to top" title="Scroll to top"><span class="icon fa fa-angle-up" aria-hidden="true"></span></button>
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-center w-96 max-w-[calc(100%-2rem)] bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-center p-6 rounded-lg border border-gray-500/30 dark:border-gray-600 text-sm shadow-lg transition-all duration-300" id="cookie-banner" role="dialog" aria-label="Cookie consent" hidden><img class="w-14 h-14" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/cookies/cookieImage1.svg" alt="" aria-hidden="true">
+      <h2 class="text-gray-800 dark:text-gray-100 text-xl font-medium pb-3 mt-2">We care about your privacy</h2>
+      <p class="w-11/12">This website uses cookies for functionality, analytics, and marketing. By accepting, you agree to our <a class="font-medium underline text-gray-700 dark:text-gray-200 hover:text-primary" href="#">Cookie Policy</a>.</p>
+      <div class="flex items-center justify-center mt-6 gap-4 w-full">
+        <button class="font-medium px-8 border border-gray-500/30 dark:border-gray-600 py-2 rounded hover:bg-primary/10 active:scale-95 transition text-gray-700 dark:text-gray-200" id="cookie-decline" type="button">Decline</button>
+        <button class="bg-primary px-8 py-2 rounded text-white font-medium active:scale-95 transition hover:bg-secondary" id="cookie-accept" type="button">Accept</button>
+      </div>
+    </div>
+    <script>
+      (function() {
+        var banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+      
+        if (localStorage.getItem('cookie_consent') === 'accepted') return;
+      
+        banner.hidden = false;
+      
+        function dismiss(accepted) {
+          if (accepted) localStorage.setItem('cookie_consent', 'accepted');
+          banner.style.opacity = '0';
+          banner.style.transform = 'translateY(1rem)';
+          setTimeout(function() { banner.hidden = true; }, 300);
+        }
+      
+        document.getElementById('cookie-accept').addEventListener('click', function() { dismiss(true); });
+        document.getElementById('cookie-decline').addEventListener('click', function() { dismiss(false); });
+      })();
+    </script>
     <script src="js/main-min.js"></script>
   </body>
 </html>

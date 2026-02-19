@@ -8,12 +8,10 @@ block pageHeaderData(pageData)
   - pageData.breadcrumbs = [{ label: 'Home', url: 'index.html' }, { label: 'About', url: null }]
 
 block content
-  section.about-section
-    .container
-      .row
-        .col-md-10.mx-auto
-          .block-content
-            p.block-text Trufla provides insurance and claims assistance services. Our team is dedicated to helping you with payments and claims every step of the way.
-          .block-content
-            h2(class="text-secondary font-bold text-section mb-section-title") Our mission
-            p.block-text We aim to deliver clear, responsive service and support so you can focus on what matters most. Get in touch for a quote or to learn more about what we offer.
+  section(class="py-16 md:py-20")
+    div(class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8")
+      div(class="mb-14")
+        p(class="text-secondary text-xl leading-[34px] font-['Open_Sans',sans-serif]") Trufla provides insurance and claims assistance services. Our team is dedicated to helping you with payments and claims every step of the way.
+      div(class="mb-14")
+        h2(class="text-secondary font-bold text-section mb-section-title") Our mission
+        p(class="text-secondary text-xl leading-[34px] font-['Open_Sans',sans-serif] mt-4") We aim to deliver clear, responsive service and support so you can focus on what matters most. Get in touch for a quote or to learn more about what we offer.

@@ -1,0 +1,71 @@
+//- Reusable accordion component
+//- Usage: +accordion(items, containerId)
+//- items: array of { question: string, answer: string }
+//- containerId: unique ID string for the container (supports multiple accordions per page)
+
+mixin accordion(items, containerId)
+  div(class="space-y-4" id=containerId)
+    each item, index in items
+      div(class="accordion-item")
+        div(class="bg-white dark:bg-gray-800 border border-zinc-200 dark:border-gray-700 rounded-lg overflow-hidden")
+          button(
+            class="accordion-btn w-full flex items-center justify-between p-4 text-left hover:bg-zinc-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
+            type="button"
+            aria-expanded="false"
+            aria-controls=`${containerId}-panel-${index}`
+          )
+            span(class="text-sm text-zinc-800 dark:text-gray-100 pr-4")= item.question
+            div(class="shrink-0 size-7 rounded-full bg-black/[0.04] dark:bg-white/10 flex items-center justify-center")
+              svg(class="accordion-icon-plus" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true")
+                path(d="M3.472 8.332h9.722M8.333 3.473v9.722" stroke="currentColor" stroke-opacity=".4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+              svg(class="accordion-icon-close hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true")
+                path(d="m8.348 8.348 6.874 6.874m.001-6.874-6.875 6.874" stroke="currentColor" stroke-opacity=".4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+        div(
+          class="accordion-panel overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0"
+          id=`${containerId}-panel-${index}`
+          role="region"
+        )
+          div(class="px-5 py-4")
+            p(class="text-sm font-light text-zinc-600 dark:text-gray-400 leading-relaxed")= item.answer
+
+  script.
+    (function() {
+      var container = document.getElementById('!{containerId}');
+      if (!container) return;
+
+      container.addEventListener('click', function(e) {
+        var btn = e.target.closest('.accordion-btn');
+        if (!btn) return;
+
+        var item = btn.closest('.accordion-item');
+        var panel = item.querySelector('.accordion-panel');
+        var iconPlus = btn.querySelector('.accordion-icon-plus');
+        var iconClose = btn.querySelector('.accordion-icon-close');
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        container.querySelectorAll('.accordion-item').forEach(function(other) {
+          if (other === item) return;
+          var otherBtn = other.querySelector('.accordion-btn');
+          var otherPanel = other.querySelector('.accordion-panel');
+          otherBtn.setAttribute('aria-expanded', 'false');
+          otherPanel.classList.add('max-h-0', 'opacity-0');
+          otherPanel.classList.remove('max-h-96', 'opacity-100');
+          other.querySelector('.accordion-icon-plus').classList.remove('hidden');
+          other.querySelector('.accordion-icon-close').classList.add('hidden');
+        });
+
+        if (isOpen) {
+          btn.setAttribute('aria-expanded', 'false');
+          panel.classList.add('max-h-0', 'opacity-0');
+          panel.classList.remove('max-h-96', 'opacity-100');
+          iconPlus.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        } else {
+          btn.setAttribute('aria-expanded', 'true');
+          panel.classList.remove('max-h-0', 'opacity-0');
+          panel.classList.add('max-h-96', 'opacity-100');
+          iconPlus.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        }
+      });
+    })();
