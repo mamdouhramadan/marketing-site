@@ -1,24 +1,24 @@
 {
-    "name": "Trufla App",
-    "short_name": "PWA",
-    "orientation": "portrait",
-    "scope": "",
-    "start_url": "",
-    "icons": [
-        {
-            "src": "./images/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "./images/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any maskable"
-        }
-    ],
-    "theme_color": "#42415b",
-    "background_color": "#fff",
-    "display": "standalone"
+  "name": "Trufla App",
+  "short_name": "PWA",
+  "orientation": "portrait",
+  "scope": "./",
+  "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "./images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#42415b",
+  "background_color": "#fff",
+  "display": "standalone"
 }

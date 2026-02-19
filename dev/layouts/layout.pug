@@ -1,0 +1,18 @@
+doctype html
+html(lang='en')
+  head
+    include ../components/head
+    block head
+      title Trufla Task
+  body(class="bg-page dark:bg-gray-900")
+    a.skip-link(href="#main-content") Skip to main content
+    include ../components/navbar
+    - var pageData = { title: '', breadcrumbs: [] }
+    block pageHeaderData(pageData)
+    if !isHomePage
+      include ../components/page-header
+      +pageHeader(pageData.title, pageData.breadcrumbs)
+    main.page#main-content(role="main")
+      block content
+    include ../components/footer
+    include ../components/scripts

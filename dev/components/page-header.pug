@@ -1,0 +1,16 @@
+//- Page header with title and breadcrumb. Use with: +pageHeader(title, breadcrumbs)
+//- breadcrumbs: array of { label: string, url: string|null }
+mixin pageHeader(title, breadcrumbs)
+  .container(class="max-w-7xl rounded-xl !mt-12 mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col py-12 bg-primary text-white ")
+        h1(class="text-white text-center font-bold text-section mb-0")= title
+        if breadcrumbs && breadcrumbs.length
+          nav(aria-label="Breadcrumb" class="mb-3")
+            ol(class="flex flex-wrap items-center justify-center gap-2 text-sm text-white/80")
+              each crumb, i in breadcrumbs
+                li(class="flex items-center gap-2")
+                  if i > 0
+                    span(aria-hidden="true" class="text-white/80") /
+                  if crumb.url
+                    a(href=crumb.url class="hover:text-white/80 hover:underline transition")= crumb.label
+                  else
+                    span(class="text-white/80 font-medium" aria-current="page")= crumb.label

@@ -13,121 +13,417 @@
     <meta name="theme-color" content="#42415b">
     <!-- Meta - Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google Font - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap">
     <!-- Main Libraries CSS-->
     <link rel="stylesheet" href="css/libs.css">
     <!-- Main Style CSS-->
     <link rel="stylesheet" href="css/main.css">
+    <!-- Tailwind CSS (load after main so utilities can override if needed)-->
+    <link rel="stylesheet" href="css/tailwind.css">
     <!-- Adding FavIcon-->
     <link href="favicon.ico" rel="icon" type="image/x-icon">
     <!-- PWA Manifest File-->
     <link rel="manifest" href="./manifest.json">
-    <link rel="apple-touch-icon" href="images/android-chrome-192x192.png.png">
+    <link rel="apple-touch-icon" href="images/android-chrome-192x192.png">
     <link rel="canonical" href="https://mamdouhramadan.github.io/design-task/prod/index.html">
-    <title>Trufla Task</title>
+    <title>Trufla Task | Home</title>
   </head>
-  <body>
-    <header class="header">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container"><a class="navbar-brand" href="#" tabindex="0"><img src="./images/logo-placeholder.svg" aria-label="Home " alt="Website Logo" width="116" height="40"></a>
-          <div id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item d-none d-md-flex align-items-center"><a class="nav-link" tabindex="0" href="#" alt="val">Payments</a></li>
-              <li class="nav-item d-none d-md-flex align-items-center"><a class="nav-link" tabindex="0" href="#" alt="val">Claims Assistance</a></li>
-              <li class="nav-item d-flex align-items-center"><a class="nav-link d-flex align-items-center" tabindex="0" alt="Phone Number" href="tel:555-555-5555"><img class="icon mx-2" src="./images/phone-icon.svg" alt="Phone Number" width="16" height="16"><span class="text d-none d-sm-inline-block d-md-inline-block d-lg-inline-block">555-555-5555</span></a></li>
-              <li class="nav-item d-flex align-items-center"><a class="nav-link btn" tabindex="0" role="button">Get <span class="d-none d-sm-inline d-md-inline d-lg-inline">a Quote</span></a></li>
+  <body class="bg-page dark:bg-gray-900"><a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+        <div class="flex flex-wrap items-center justify-between gap-4 py-3 md:py-4"><a class="flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded" href="index.html" tabindex="0"><img class="h-14 md:h-16 dark:invert" src="./images/logo-placeholder.svg" alt="Trufla - Home" width="200" height="80"></a>
+          <ul class="flex flex-wrap items-center gap-x-4 gap-y-2 md:gap-6 list-none m-0 p-0">
+            <li class="hidden md:block"><a class="text-secondary hover:text-primary dark:text-gray-200 dark:hover:text-primary font-semibold text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded px-1 py-2" tabindex="0" href="index.html">Payments</a></li>
+            <li class="hidden md:block"><a class="text-secondary hover:text-primary dark:text-gray-200 dark:hover:text-primary font-semibold text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded px-1 py-2" tabindex="0" href="index.html#team">Claims Assistance</a></li>
+            <li class="hidden md:block"><a class="text-secondary hover:text-primary dark:text-gray-200 dark:hover:text-primary font-semibold text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded px-1 py-2" tabindex="0" href="about.html">About</a></li>
+            <li class="hidden md:block"><a class="text-secondary hover:text-primary dark:text-gray-200 dark:hover:text-primary font-semibold text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded px-1 py-2" tabindex="0" href="contact.html">Contact</a></li>
+            <li><a class="flex items-center gap-2 text-secondary hover:text-primary dark:text-gray-200 dark:hover:text-primary font-semibold text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded px-1 py-2" tabindex="0" href="tel:555-555-5555" aria-label="Phone: 555-555-5555"><img class="flex-shrink-0" src="./images/phone-icon.svg" alt="" width="16" height="16" aria-hidden="true"><span class="hidden sm:inline">555-555-5555</span></a></li>
+            <li><a class="inline-flex items-center justify-center bg-primary text-white hover:bg-secondary border border-primary hover:border-secondary rounded font-semibold text-base px-4 py-2.5 md:px-6 md:py-3 h-10 md:h-12 min-w-[100px] md:min-w-[140px] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors" tabindex="0" role="button" href="contact.html">Get <span class="hidden sm:inline">a Quote</span></a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="page" id="main-content" role="main">
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="hero-badge"><span class="hero-badge-dot" aria-hidden="true"></span><span class="hero-badge-text">Trusted templates for your business</span></div>
+            <h1 class="hero-title">Welcome to truWeb Templates</h1>
+            <p class="hero-text">Get insurance templates and claims support that scale with your business. We help teams save time and reduce errors with clear processes and ready-to-use documents.</p><a class="hero-cta" href="contact.html">Get a Quote</a>
+            <div class="hero-features">
+              <div class="hero-feature"><span class="hero-feature-dot" aria-hidden="true"></span><span class="hero-feature-label">Payments</span></div>
+              <div class="hero-feature"><span class="hero-feature-dot" aria-hidden="true"></span><span class="hero-feature-label">Claims Assistance</span></div>
+              <div class="hero-feature"><span class="hero-feature-dot" aria-hidden="true"></span><span class="hero-feature-label">Get a Quote</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="team-section" id="team">
+        <div class="team-section-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 class="team-eyebrow">Contact Us</h3>
+          <h2 class="text-secondary font-bold text-section mb-section-title">Our Team</h2>
+          <p class="team-intro">Meet the people behind truWeb. We focus on clear processes, fast support, and templates that help you handle payments and claims with confidence.</p>
+          <div class="team-grid flex flex-nowrap overflow-x-auto gap-4 lg:grid lg:grid-cols-3 lg:overflow-visible pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory">
+            <div class="team-card shrink-0 min-w-[57.14%] lg:min-w-0 snap-center snap-always lg:snap-align-none"><img class="team-card-img" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&amp;w=200" alt="Sarah Chen" width="96" height="96">
+              <h3 class="team-card-name">Sarah Chen</h3>
+              <p class="team-card-role">Head of Claims</p>
+              <p class="team-card-bio">Leads claims operations and customer support. Former claims manager with over 10 years in insurance.</p>
+              <p class="team-card-phone">+1 (416) 555-0142</p>
+              <p class="team-card-email">sarah.chen@truweb.example.com</p>
+              <div class="team-card-social"><a href="https://www.linkedin.com/" aria-label="LinkedIn">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M14.882 0H1.167A1.16 1.16 0 0 0 0 1.161V14.84C0 15.459.519 16 1.167 16H14.83a1.16 1.16 0 0 0 1.166-1.161V1.135C16.048.516 15.53 0 14.882 0M4.744 13.6H2.385V5.987h2.36zM3.552 4.929c-.778 0-1.374-.62-1.374-1.368a1.38 1.38 0 0 1 1.374-1.367 1.38 1.38 0 0 1 1.374 1.367c0 .749-.57 1.368-1.374 1.368M11.33 13.6V9.91c0-.878-.026-2.039-1.245-2.039-1.244 0-1.426.98-1.426 1.961V13.6H6.3V5.987h2.307v1.058h.026c.337-.62 1.09-1.239 2.256-1.239 2.411 0 2.852 1.549 2.852 3.665V13.6z"></path>
+                  </svg></a><a href="#" aria-label="Dribbble">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M14.095 0H1.905C.855 0 0 .854 0 1.905v12.19C0 15.145.854 16 1.905 16h12.19c1.05 0 1.905-.854 1.905-1.905V1.905C16 .855 15.146 0 14.095 0m-1.521 6.98a2.85 2.85 0 0 1-2.651-1.277v4.395A3.248 3.248 0 1 1 6.674 6.85c.068 0 .134.006.201.01v1.6c-.067-.007-.132-.02-.2-.02a1.658 1.658 0 1 0 0 3.316c.915 0 1.724-.721 1.724-1.637l.016-7.465h1.531a2.85 2.85 0 0 0 2.63 2.547v1.78"></path>
+                  </svg></a><a href="#" aria-label="Twitter">
+                  <svg width="19" height="16" viewBox="0 0 19 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="m16.358 2.613 1.128-1.425c.326-.386.416-.683.445-.832-.89.535-1.722.713-2.256.713h-.208L15.348.95A3.83 3.83 0 0 0 12.795 0c-2.078 0-3.71 1.722-3.71 3.71 0 .12 0 .298.03.417l.088.593-.623-.03C4.78 4.573 1.663 1.307 1.158.743c-.831 1.485-.356 2.91.148 3.8l1.01 1.663-1.603-.89q.044 1.87 1.425 2.938l.801.594-.801.326c.504 1.515 1.632 2.138 2.464 2.375l1.098.297-1.04.713C2.999 13.745.92 13.656 0 13.568c1.87 1.305 4.097 1.602 5.64 1.602 1.158 0 2.02-.118 2.227-.207 8.313-1.96 8.699-9.382 8.699-10.866v-.208l.178-.119c1.01-.95 1.425-1.454 1.662-1.751-.089.03-.208.089-.326.119z"></path>
+                  </svg></a></div>
+            </div>
+            <div class="team-card shrink-0 min-w-[57.14%] lg:min-w-0 snap-center snap-always lg:snap-align-none"><img class="team-card-img" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&amp;w=200" alt="James Mitchell" width="96" height="96">
+              <h3 class="team-card-name">James Mitchell</h3>
+              <p class="team-card-role">Customer Success Lead</p>
+              <p class="team-card-bio">Helps teams adopt our templates and workflows. Focused on onboarding and training.</p>
+              <p class="team-card-phone">+1 (416) 555-0143</p>
+              <p class="team-card-email">james.mitchell@truweb.example.com</p>
+              <div class="team-card-social"><a href="https://www.linkedin.com/" aria-label="LinkedIn">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M14.882 0H1.167A1.16 1.16 0 0 0 0 1.161V14.84C0 15.459.519 16 1.167 16H14.83a1.16 1.16 0 0 0 1.166-1.161V1.135C16.048.516 15.53 0 14.882 0M4.744 13.6H2.385V5.987h2.36zM3.552 4.929c-.778 0-1.374-.62-1.374-1.368a1.38 1.38 0 0 1 1.374-1.367 1.38 1.38 0 0 1 1.374 1.367c0 .749-.57 1.368-1.374 1.368M11.33 13.6V9.91c0-.878-.026-2.039-1.245-2.039-1.244 0-1.426.98-1.426 1.961V13.6H6.3V5.987h2.307v1.058h.026c.337-.62 1.09-1.239 2.256-1.239 2.411 0 2.852 1.549 2.852 3.665V13.6z"></path>
+                  </svg></a><a href="#" aria-label="Dribbble">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M14.095 0H1.905C.855 0 0 .854 0 1.905v12.19C0 15.145.854 16 1.905 16h12.19c1.05 0 1.905-.854 1.905-1.905V1.905C16 .855 15.146 0 14.095 0m-1.521 6.98a2.85 2.85 0 0 1-2.651-1.277v4.395A3.248 3.248 0 1 1 6.674 6.85c.068 0 .134.006.201.01v1.6c-.067-.007-.132-.02-.2-.02a1.658 1.658 0 1 0 0 3.316c.915 0 1.724-.721 1.724-1.637l.016-7.465h1.531a2.85 2.85 0 0 0 2.63 2.547v1.78"></path>
+                  </svg></a><a href="#" aria-label="Twitter">
+                  <svg width="19" height="16" viewBox="0 0 19 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="m16.358 2.613 1.128-1.425c.326-.386.416-.683.445-.832-.89.535-1.722.713-2.256.713h-.208L15.348.95A3.83 3.83 0 0 0 12.795 0c-2.078 0-3.71 1.722-3.71 3.71 0 .12 0 .298.03.417l.088.593-.623-.03C4.78 4.573 1.663 1.307 1.158.743c-.831 1.485-.356 2.91.148 3.8l1.01 1.663-1.603-.89q.044 1.87 1.425 2.938l.801.594-.801.326c.504 1.515 1.632 2.138 2.464 2.375l1.098.297-1.04.713C2.999 13.745.92 13.656 0 13.568c1.87 1.305 4.097 1.602 5.64 1.602 1.158 0 2.02-.118 2.227-.207 8.313-1.96 8.699-9.382 8.699-10.866v-.208l.178-.119c1.01-.95 1.425-1.454 1.662-1.751-.089.03-.208.089-.326.119z"></path>
+                  </svg></a></div>
+            </div>
+            <div class="team-card shrink-0 min-w-[57.14%] lg:min-w-0 snap-center snap-always lg:snap-align-none"><img class="team-card-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&amp;w=200&amp;h=200&amp;auto=format&amp;fit=crop" alt="Priya Sharma" width="96" height="96">
+              <h3 class="team-card-name">Priya Sharma</h3>
+              <p class="team-card-role">Product &amp; Operations</p>
+              <p class="team-card-bio">Owns product design and operations. Ensures our templates stay up to date with regulations.</p>
+              <p class="team-card-phone">+1 (416) 555-0144</p>
+              <p class="team-card-email">priya.sharma@truweb.example.com</p>
+              <div class="team-card-social"><a href="https://www.linkedin.com/" aria-label="LinkedIn">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M14.882 0H1.167A1.16 1.16 0 0 0 0 1.161V14.84C0 15.459.519 16 1.167 16H14.83a1.16 1.16 0 0 0 1.166-1.161V1.135C16.048.516 15.53 0 14.882 0M4.744 13.6H2.385V5.987h2.36zM3.552 4.929c-.778 0-1.374-.62-1.374-1.368a1.38 1.38 0 0 1 1.374-1.367 1.38 1.38 0 0 1 1.374 1.367c0 .749-.57 1.368-1.374 1.368M11.33 13.6V9.91c0-.878-.026-2.039-1.245-2.039-1.244 0-1.426.98-1.426 1.961V13.6H6.3V5.987h2.307v1.058h.026c.337-.62 1.09-1.239 2.256-1.239 2.411 0 2.852 1.549 2.852 3.665V13.6z"></path>
+                  </svg></a><a href="#" aria-label="Dribbble">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M14.095 0H1.905C.855 0 0 .854 0 1.905v12.19C0 15.145.854 16 1.905 16h12.19c1.05 0 1.905-.854 1.905-1.905V1.905C16 .855 15.146 0 14.095 0m-1.521 6.98a2.85 2.85 0 0 1-2.651-1.277v4.395A3.248 3.248 0 1 1 6.674 6.85c.068 0 .134.006.201.01v1.6c-.067-.007-.132-.02-.2-.02a1.658 1.658 0 1 0 0 3.316c.915 0 1.724-.721 1.724-1.637l.016-7.465h1.531a2.85 2.85 0 0 0 2.63 2.547v1.78"></path>
+                  </svg></a><a href="#" aria-label="Twitter">
+                  <svg width="19" height="16" viewBox="0 0 19 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="m16.358 2.613 1.128-1.425c.326-.386.416-.683.445-.832-.89.535-1.722.713-2.256.713h-.208L15.348.95A3.83 3.83 0 0 0 12.795 0c-2.078 0-3.71 1.722-3.71 3.71 0 .12 0 .298.03.417l.088.593-.623-.03C4.78 4.573 1.663 1.307 1.158.743c-.831 1.485-.356 2.91.148 3.8l1.01 1.663-1.603-.89q.044 1.87 1.425 2.938l.801.594-.801.326c.504 1.515 1.632 2.138 2.464 2.375l1.098.297-1.04.713C2.999 13.745.92 13.656 0 13.568c1.87 1.305 4.097 1.602 5.64 1.602 1.158 0 2.02-.118 2.227-.207 8.313-1.96 8.699-9.382 8.699-10.866v-.208l.178-.119c1.01-.95 1.425-1.454 1.662-1.751-.089.03-.208.089-.326.119z"></path>
+                  </svg></a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="clients-section">
+        <div class="team-section-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 class="team-eyebrow">Trusted by teams everywhere</h3>
+          <h2 class="text-secondary font-bold text-section mb-section-title">Our Clients</h2>
+          <p class="team-intro">Brands and organizations that use truWeb templates to streamline payments and claims.</p>
+        </div>
+        <div class="overflow-hidden w-full relative max-w-5xl mx-auto select-none py-4">
+          <div class="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent"></div>
+          <div class="marquee-inner flex will-change-transform min-w-[200%]">
+            <div class="flex"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/slack.svg" alt="Slack" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/framer.svg" alt="Framer" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/netflix.svg" alt="Netflix" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/google.svg" alt="Google" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/linkedin.svg" alt="Linkedin" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/instagram.svg" alt="Instagram" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/facebook.svg" alt="Facebook" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/slack.svg" alt="Slack" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/framer.svg" alt="Framer" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/netflix.svg" alt="Netflix" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/google.svg" alt="Google" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/linkedin.svg" alt="Linkedin" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/instagram.svg" alt="Instagram" draggable="false"><img class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/facebook.svg" alt="Facebook" draggable="false">
+            </div>
+          </div>
+          <div class="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent"></div>
+        </div>
+      </section>
+      <section class="team-section py-16 md:py-20">
+        <div class="team-section-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 class="team-eyebrow">What people say</h3>
+          <h2 class="text-secondary font-bold text-section mb-section-title text-center">Our Testimonials</h2>
+          <p class="team-intro">Hear from our satisfied customers about the benefits of using truWeb. We love hearing from our customers.</p>
+        </div>
+        <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl mx-auto">
+          <div class="w-full max-w-sm space-y-4 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex gap-1" aria-hidden="true">
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+            </div>
+            <p class="line-clamp-3">&quot;Super clean and easy to use. truWeb templates saved us hours and kept our claims process consistent.&quot;</p>
+            <div class="flex items-center gap-2 pt-3"><img class="size-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&amp;w=200" alt="Richard Nelson">
+              <div>
+                <p class="font-medium text-gray-800 dark:text-gray-200">Richard Nelson</p>
+                <p class="text-gray-500 dark:text-gray-400 text-xs">Claims Manager</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full max-w-sm space-y-4 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex gap-1" aria-hidden="true">
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+            </div>
+            <p class="line-clamp-3">&quot;The template quality is top-notch. Perfect balance between clarity and compliance. Highly recommend for any insurance team.&quot;</p>
+            <div class="flex items-center gap-2 pt-3"><img class="size-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&amp;w=200" alt="Sophia Martinez">
+              <div>
+                <p class="font-medium text-gray-800 dark:text-gray-200">Sophia Martinez</p>
+                <p class="text-gray-500 dark:text-gray-400 text-xs">Operations Lead</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full max-w-sm space-y-4 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex gap-1" aria-hidden="true">
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+            </div>
+            <p class="line-clamp-3">&quot;We adopted truWeb across our team. Our workflow is faster and our documents are consistent. Support is responsive.&quot;</p>
+            <div class="flex items-center gap-2 pt-3"><img class="size-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&amp;auto=format&amp;fit=crop&amp;q=60" alt="Ethan Roberts">
+              <div>
+                <p class="font-medium text-gray-800 dark:text-gray-200">Ethan Roberts</p>
+                <p class="text-gray-500 dark:text-gray-400 text-xs">Compliance Officer</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full max-w-sm space-y-4 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex gap-1" aria-hidden="true">
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+            </div>
+            <p class="line-clamp-3">&quot;Clean, professional templates that our clients trust. Updates are straightforward and the structure makes training easy.&quot;</p>
+            <div class="flex items-center gap-2 pt-3"><img class="size-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&amp;auto=format&amp;fit=crop&amp;q=60" alt="Isabella Kim">
+              <div>
+                <p class="font-medium text-gray-800 dark:text-gray-200">Isabella Kim</p>
+                <p class="text-gray-500 dark:text-gray-400 text-xs">Customer Success</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full max-w-sm space-y-4 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex gap-1" aria-hidden="true">
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+            </div>
+            <p class="line-clamp-3">&quot;We switched to truWeb last year. Fewer errors, less back-and-forth, and our team actually enjoys using the templates.&quot;</p>
+            <div class="flex items-center gap-2 pt-3"><img class="size-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&amp;w=100&amp;h=100&amp;auto=format&amp;fit=crop" alt="Liam Johnson">
+              <div>
+                <p class="font-medium text-gray-800 dark:text-gray-200">Liam Johnson</p>
+                <p class="text-gray-500 dark:text-gray-400 text-xs">Head of Payments</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full max-w-sm space-y-4 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex gap-1" aria-hidden="true">
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+              <svg class="size-4 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
+              </svg>
+            </div>
+            <p class="line-clamp-3">&quot;Well-structured and easy to customize. Makes audits and updates simple. Our go-to for claims and payment docs.&quot;</p>
+            <div class="flex items-center gap-2 pt-3"><img class="size-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&amp;w=200" alt="Ava Patel">
+              <div>
+                <p class="font-medium text-gray-800 dark:text-gray-200">Ava Patel</p>
+                <p class="text-gray-500 dark:text-gray-400 text-xs">Founder &amp; CEO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="team-section py-16 md:py-20">
+        <div class="team-section-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 class="team-eyebrow">Our work</h3>
+          <h2 class="text-secondary font-bold text-section mb-section-title text-center">About our apps</h2>
+          <p class="team-intro">A visual collection of our most recent works — each piece crafted with intention, emotion and style.</p>
+          <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-0 py-10"><img class="max-w-sm w-full rounded-xl h-auto object-cover" src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&amp;w=830&amp;h=844&amp;auto=format&amp;fit=crop" alt="truWeb templates and workflows">
+            <div>
+              <h3 class="text-secondary font-bold text-section mb-section-title">Our Latest features</h3>
+              <p class="text-secondary/80 text-lg leading-[34px] font-['Open_Sans',sans-serif]">Ship clear, compliant templates without the overhead — customizable, scalable and team-friendly documents for payments and claims.</p>
+              <div class="flex flex-col gap-10 mt-6">
+                <div class="flex items-center gap-4">
+                  <div class="size-9 p-2 bg-primary/10 border border-primary/30 rounded flex items-center justify-center shrink-0"><img class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png" alt=""></div>
+                  <div>
+                    <h4 class="text-base font-medium text-secondary">Lightning-Fast Performance</h4>
+                    <p class="text-sm text-secondary/70">Built with speed — minimal load times and optimized delivery.</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="size-9 p-2 bg-primary/10 border border-primary/30 rounded flex items-center justify-center shrink-0"><img class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png" alt=""></div>
+                  <div>
+                    <h4 class="text-base font-medium text-secondary">Beautifully Designed Components</h4>
+                    <p class="text-sm text-secondary/70">Modern, clear templates ready for any insurance or claims workflow.</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="size-9 p-2 bg-primary/10 border border-primary/30 rounded flex items-center justify-center shrink-0"><img class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png" alt=""></div>
+                  <div>
+                    <h4 class="text-base font-medium text-secondary">Plug-and-Play Integration</h4>
+                    <p class="text-sm text-secondary/70">Simple setup — use as-is or customize to match your brand and process.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-three team-section py-16 md:py-20">
+        <div class="team-section-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="block-content mb-14">
+            <h3 class="text-secondary font-bold text-section mb-section-title">Why Choose truWeb</h3>
+            <p class="block-text">We provide insurance and claims teams with ready-to-use templates and workflows. Our content is kept in line with current practices so you can focus on serving clients instead of reinventing documents. Whether you need payment forms, claim checklists, or standard letters, we help you stay consistent and compliant.</p>
+          </div>
+          <div class="block-content mb-14">
+            <h3 class="text-secondary font-bold text-section mb-section-title">How We Support You</h3>
+            <p class="block-text">From onboarding to ongoing updates, we make it easy to adopt and maintain our templates. You get clear guidance, versioned documents, and a single place to manage your process library. Support is available by email and phone so you can get answers when you need them.</p>
+          </div>
+          <div class="block-content">
+            <ul class="list-none pl-0 space-y-4">
+              <li class="flex items-center gap-2 text-secondary font-bold text-lg leading-7"><span class="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[#6f759d] text-white text-sm">✓</span><span>Templates reviewed for clarity and compliance</span></li>
+              <li class="flex items-center gap-2 text-secondary font-bold text-lg leading-7"><span class="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[#6f759d] text-white text-sm">✓</span><span>Claims and payments workflows included</span></li>
+              <li class="flex items-center gap-2 text-secondary font-bold text-lg leading-7"><span class="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[#6f759d] text-white text-sm">✓</span><span>Updates when regulations or best practices change</span></li>
             </ul>
           </div>
         </div>
-      </nav>
-      <div class="space-section d-none d-md block"></div>
-    </header>
-    <main class="page">
-      <section class="hero-section d-flex align-items-center">
-        <div class="hero-content w-100">
-          <div class="container">
-            <div class="row">
-              <div class="col-8">
-                <h1 class="welcome-title">Welcome to truWeb Templates</h1>
-              </div>
-              <div class="col-md-8 col-12">
-                <p class="content-text">In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis tristi.</p>
-                <button class="btn btn-primary">Get a Quote</button>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
-      <section class="team-section">
-        <div class="container">
-          <h2 class="h1 section-title text-center">(H2) Our Team</h2>
-          <div class="row">
-            <div class="col-md-4 col-sm-6 text-center">
-              <div class="card"><img class="card-img-top" src="images/team-member.jpg" title="Name Member" width="356" height="279">
-                <div class="card-body">
-                  <h3 class="card-name">name</h3>
-                  <p class="card-title">title</p>
-                  <p class="card-phone">555-555-555</p>
-                  <p class="card-email text-uppercase">email@email.com</p>
-                  <p class="card-links"><a class="linked-in" href="https://www.linkedin.com/">linkedin</a></p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 text-center">
-              <div class="card"><img class="card-img-top" src="images/team-member.jpg" title="Name Member" width="356" height="279">
-                <div class="card-body">
-                  <h3 class="card-name">name</h3>
-                  <p class="card-title">title</p>
-                  <p class="card-phone">555-555-555</p>
-                  <p class="card-email text-uppercase">email@email.com</p>
-                  <p class="card-links"><a class="linked-in" href="https://www.linkedin.com/">linkedin</a></p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 text-center">
-              <div class="card"><img class="card-img-top" src="images/team-member.jpg" title="Name Member" width="356" height="279">
-                <div class="card-body">
-                  <h3 class="card-name">name</h3>
-                  <p class="card-title">title</p>
-                  <p class="card-phone">555-555-555</p>
-                  <p class="card-email text-uppercase">email@email.com</p>
-                  <p class="card-links"><a class="linked-in" href="https://www.linkedin.com/">linkedin</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-three">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-10 mx-auto">
-              <div class="block-content">
-                <h3 class="block-title heading-x5">(H3)Heading</h3>
-                <p class="block-text">(Body Copy) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim.</p>
-              </div>
-              <div class="block-content">
-                <h3 class="block-title heading-x4">(H3)Heading</h3>
-                <p class="block-text">(Body Copy) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim.</p>
-              </div>
-              <div class="block-content">
-                <div class="featured-list">
-                  <ul class="list-unstyled">
-                    <li><i class="icon fa fa-check"></i> <span class="text">(H5) Something goes here</span></li>
-                    <li><i class="icon fa fa-check"></i> <span class="text">Something goes here</span></li>
-                    <li><i class="icon fa fa-check"></i> <span class="text">Something goes here</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer class="footer">
-        <div class="scroll-top">
-          <div class="icon fa fa-angle-up"></div>
-        </div>
-        <script src="js/main-min.js"></script>
-      </footer>
     </main>
+    <footer class="bg-black text-white py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-20">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-6 gap-8 md:gap-16">
+        <div class="lg:col-span-3 space-y-6"><a class="block" href="index.html"><img class="invert h-10 w-auto max-w-[157px]" src="./images/logo-placeholder.svg" alt="Trufla - Home" width="157" height="40"></a>
+          <p class="text-sm md:text-base">Join our newsletter for regular updates.</p>
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <form class="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-1 sm:max-w-xs" action="#" method="post" aria-label="Newsletter signup">
+              <input class="bg-[#14171A] text-white/70 border border-white/10 px-3 py-3 rounded-md w-full placeholder:text-sm placeholder:font-light focus:outline-none focus:ring-1 focus:ring-gray-600" type="email" name="email" placeholder="example@email.com" required aria-label="Email address">
+              <button class="bg-primary text-white px-5 py-3 rounded-md border border-primary text-sm hover:bg-secondary hover:border-secondary transition-colors" type="submit">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-28 items-start">
+          <div>
+            <h3 class="font-medium text-sm mb-4 md:mb-6">Products</h3>
+            <ul class="space-y-3 md:space-y-4 text-sm text-white/70">
+              <li><a class="hover:text-white" href="#">Components</a></li>
+              <li><a class="hover:text-white" href="#">Templates</a></li>
+              <li><a class="hover:text-white" href="#">Icons</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-medium text-sm mb-4 md:mb-6">Resources</h3>
+            <ul class="space-y-3 md:space-y-4 text-sm text-white/70">
+              <li><a class="hover:text-white" href="#">PrebuiltUI</a></li>
+              <li><a class="hover:text-white" href="#">Templates</a></li>
+              <li><a class="hover:text-white" href="#">Components</a></li>
+              <li><a class="hover:text-white" href="#">Blogs</a></li>
+              <li><a class="hover:text-white" href="#">Store</a></li>
+            </ul>
+          </div>
+          <div class="col-span-2 md:col-span-1">
+            <h3 class="font-medium text-sm mb-4 md:mb-6">Company</h3>
+            <ul class="space-y-3 md:space-y-4 text-sm text-white/70">
+              <li><a class="hover:text-white" href="about.html">About</a></li>
+              <li><a class="hover:text-white" href="#">Vision</a></li>
+              <li class="flex items-center gap-2"><a class="hover:text-white" href="#">Careers</a><span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-green-950 border border-green-300 text-green-300">HIRING</span></li>
+              <li><a class="hover:text-white" href="#">Privacy policy</a></li>
+              <li><a class="hover:text-white" href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto mt-12 md:mt-16 pt-6 border-t border-neutral-700 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-white/70 text-xs sm:text-sm order-2 md:order-1">© 2025 Trufla. All rights reserved.</p>
+        <div class="flex gap-5 md:gap-6 order-1 md:order-2"><a class="text-white hover:text-gray-300" href="#" aria-label="X (Twitter)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"></path>
+            </svg></a><a class="text-white hover:text-gray-300" href="#" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg></a><a class="text-white hover:text-gray-300" href="#" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect width="4" height="12" x="2" y="9"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg></a><a class="text-white hover:text-gray-300" href="#" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+              <path d="m10 15 5-3-5-3z"></path>
+            </svg></a><a class="text-white hover:text-gray-300" href="#" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+            </svg></a></div>
+      </div>
+    </footer>
+    <button class="scroll-top fixed bottom-4 left-4 w-12 h-12 rounded bg-primary text-white text-2xl flex items-center justify-center cursor-pointer transition-colors hover:bg-secondary border-none hidden" type="button" aria-label="Scroll to top" title="Scroll to top"><span class="icon fa fa-angle-up" aria-hidden="true"></span></button>
+    <script src="js/main-min.js"></script>
   </body>
 </html>

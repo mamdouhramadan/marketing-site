@@ -1,0 +1,107 @@
+extends ../layouts/layout
+
+block head
+  title Trufla Task | Home
+
+block content
+  section.hero-section
+    .hero-content
+      .container(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+        .hero-badge
+          span.hero-badge-dot(aria-hidden="true")
+          span.hero-badge-text Trusted templates for your business
+        h1.hero-title Welcome to truWeb Templates
+        p.hero-text Get insurance templates and claims support that scale with your business. We help teams save time and reduce errors with clear processes and ready-to-use documents.
+        a.hero-cta(href="contact.html") Get a Quote
+        .hero-features
+          .hero-feature
+            span.hero-feature-dot(aria-hidden="true")
+            span.hero-feature-label Payments
+          .hero-feature
+            span.hero-feature-dot(aria-hidden="true")
+            span.hero-feature-label Claims Assistance
+          .hero-feature
+            span.hero-feature-dot(aria-hidden="true")
+            span.hero-feature-label Get a Quote
+  section.team-section#team
+    .team-section-inner(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+      h3.team-eyebrow Contact Us
+      h2(class="text-secondary font-bold text-section mb-section-title") Our Team
+      p.team-intro Meet the people behind truWeb. We focus on clear processes, fast support, and templates that help you handle payments and claims with confidence.
+      .team-grid(class="flex flex-nowrap overflow-x-auto gap-4 lg:grid lg:grid-cols-3 lg:overflow-visible pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory")
+        each member in [{ img: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200', alt: 'Sarah Chen', name: 'Sarah Chen', role: 'Head of Claims', bio: 'Leads claims operations and customer support. Former claims manager with over 10 years in insurance.', phone: '+1 (416) 555-0142', email: 'sarah.chen@truweb.example.com' }, { img: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200', alt: 'James Mitchell', name: 'James Mitchell', role: 'Customer Success Lead', bio: 'Helps teams adopt our templates and workflows. Focused on onboarding and training.', phone: '+1 (416) 555-0143', email: 'james.mitchell@truweb.example.com' }, { img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&h=200&auto=format&fit=crop', alt: 'Priya Sharma', name: 'Priya Sharma', role: 'Product & Operations', bio: 'Owns product design and operations. Ensures our templates stay up to date with regulations.', phone: '+1 (416) 555-0144', email: 'priya.sharma@truweb.example.com' }]
+          .team-card(class="shrink-0 min-w-[57.14%] lg:min-w-0 snap-center snap-always lg:snap-align-none")
+            img.team-card-img(src=member.img alt=member.alt width="96" height="96")
+            h3.team-card-name= member.name
+            p.team-card-role= member.role
+            p.team-card-bio= member.bio
+            p.team-card-phone= member.phone
+            p.team-card-email= member.email
+            .team-card-social
+              a(href="https://www.linkedin.com/" aria-label="LinkedIn")
+                svg(width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true")
+                  path(d="M14.882 0H1.167A1.16 1.16 0 0 0 0 1.161V14.84C0 15.459.519 16 1.167 16H14.83a1.16 1.16 0 0 0 1.166-1.161V1.135C16.048.516 15.53 0 14.882 0M4.744 13.6H2.385V5.987h2.36zM3.552 4.929c-.778 0-1.374-.62-1.374-1.368a1.38 1.38 0 0 1 1.374-1.367 1.38 1.38 0 0 1 1.374 1.367c0 .749-.57 1.368-1.374 1.368M11.33 13.6V9.91c0-.878-.026-2.039-1.245-2.039-1.244 0-1.426.98-1.426 1.961V13.6H6.3V5.987h2.307v1.058h.026c.337-.62 1.09-1.239 2.256-1.239 2.411 0 2.852 1.549 2.852 3.665V13.6z")
+              a(href="#" aria-label="Dribbble")
+                svg(width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true")
+                  path(d="M14.095 0H1.905C.855 0 0 .854 0 1.905v12.19C0 15.145.854 16 1.905 16h12.19c1.05 0 1.905-.854 1.905-1.905V1.905C16 .855 15.146 0 14.095 0m-1.521 6.98a2.85 2.85 0 0 1-2.651-1.277v4.395A3.248 3.248 0 1 1 6.674 6.85c.068 0 .134.006.201.01v1.6c-.067-.007-.132-.02-.2-.02a1.658 1.658 0 1 0 0 3.316c.915 0 1.724-.721 1.724-1.637l.016-7.465h1.531a2.85 2.85 0 0 0 2.63 2.547v1.78")
+              a(href="#" aria-label="Twitter")
+                svg(width="19" height="16" viewBox="0 0 19 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true")
+                  path(d="m16.358 2.613 1.128-1.425c.326-.386.416-.683.445-.832-.89.535-1.722.713-2.256.713h-.208L15.348.95A3.83 3.83 0 0 0 12.795 0c-2.078 0-3.71 1.722-3.71 3.71 0 .12 0 .298.03.417l.088.593-.623-.03C4.78 4.573 1.663 1.307 1.158.743c-.831 1.485-.356 2.91.148 3.8l1.01 1.663-1.603-.89q.044 1.87 1.425 2.938l.801.594-.801.326c.504 1.515 1.632 2.138 2.464 2.375l1.098.297-1.04.713C2.999 13.745.92 13.656 0 13.568c1.87 1.305 4.097 1.602 5.64 1.602 1.158 0 2.02-.118 2.227-.207 8.313-1.96 8.699-9.382 8.699-10.866v-.208l.178-.119c1.01-.95 1.425-1.454 1.662-1.751-.089.03-.208.089-.326.119z")
+  section.clients-section
+    .team-section-inner(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+      h3.team-eyebrow Trusted by teams everywhere
+      h2(class="text-secondary font-bold text-section mb-section-title") Our Clients
+      p.team-intro Brands and organizations that use truWeb templates to streamline payments and claims.
+    div(class="overflow-hidden w-full relative max-w-5xl mx-auto select-none py-4")
+      div(class="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent")
+      div.marquee-inner(class="flex will-change-transform min-w-[200%]")
+        div(class="flex")
+          - var clientLogos = ['slack', 'framer', 'netflix', 'google', 'linkedin', 'instagram', 'facebook']
+          each name in clientLogos.concat(clientLogos)
+            img(class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/" + name + ".svg" alt=name.charAt(0).toUpperCase() + name.slice(1) draggable="false")
+      div(class="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent")
+  - var testimonials = [{ quote: "Super clean and easy to use. truWeb templates saved us hours and kept our claims process consistent.", name: "Richard Nelson", role: "Claims Manager", image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200" }, { quote: "The template quality is top-notch. Perfect balance between clarity and compliance. Highly recommend for any insurance team.", name: "Sophia Martinez", role: "Operations Lead", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200" }, { quote: "We adopted truWeb across our team. Our workflow is faster and our documents are consistent. Support is responsive.", name: "Ethan Roberts", role: "Compliance Officer", image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60" }, { quote: "Clean, professional templates that our clients trust. Updates are straightforward and the structure makes training easy.", name: "Isabella Kim", role: "Customer Success", image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60" }, { quote: "We switched to truWeb last year. Fewer errors, less back-and-forth, and our team actually enjoys using the templates.", name: "Liam Johnson", role: "Head of Payments", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&h=100&auto=format&fit=crop" }, { quote: "Well-structured and easy to customize. Makes audits and updates simple. Our go-to for claims and payment docs.", name: "Ava Patel", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200" }]
+  include ../components/testimonials
+  section.team-section(class="py-16 md:py-20")
+    .team-section-inner(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+      h3.team-eyebrow Our work
+      h2(class="text-secondary font-bold text-section mb-section-title text-center") About our apps
+      p.team-intro A visual collection of our most recent works — each piece crafted with intention, emotion and style.
+      div(class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-0 py-10")
+        img(class="max-w-sm w-full rounded-xl h-auto object-cover" src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&w=830&h=844&auto=format&fit=crop" alt="truWeb templates and workflows")
+        div
+          h3(class="text-secondary font-bold text-section mb-section-title") Our Latest features
+          p(class="text-secondary/80 text-lg leading-[34px] font-['Open_Sans',sans-serif]") Ship clear, compliant templates without the overhead — customizable, scalable and team-friendly documents for payments and claims.
+          div(class="flex flex-col gap-10 mt-6")
+            div(class="flex items-center gap-4")
+              div(class="size-9 p-2 bg-primary/10 border border-primary/30 rounded flex items-center justify-center shrink-0")
+                img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png" alt="")
+              div
+                h4(class="text-base font-medium text-secondary") Lightning-Fast Performance
+                p(class="text-sm text-secondary/70") Built with speed — minimal load times and optimized delivery.
+            div(class="flex items-center gap-4")
+              div(class="size-9 p-2 bg-primary/10 border border-primary/30 rounded flex items-center justify-center shrink-0")
+                img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png" alt="")
+              div
+                h4(class="text-base font-medium text-secondary") Beautifully Designed Components
+                p(class="text-sm text-secondary/70") Modern, clear templates ready for any insurance or claims workflow.
+            div(class="flex items-center gap-4")
+              div(class="size-9 p-2 bg-primary/10 border border-primary/30 rounded flex items-center justify-center shrink-0")
+                img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png" alt="")
+              div
+                h4(class="text-base font-medium text-secondary") Plug-and-Play Integration
+                p(class="text-sm text-secondary/70") Simple setup — use as-is or customize to match your brand and process.
+  section.section-three.team-section(class="py-16 md:py-20")
+    .team-section-inner(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+      .block-content(class="mb-14")
+        h3(class="text-secondary font-bold text-section mb-section-title") Why Choose truWeb
+        p.block-text We provide insurance and claims teams with ready-to-use templates and workflows. Our content is kept in line with current practices so you can focus on serving clients instead of reinventing documents. Whether you need payment forms, claim checklists, or standard letters, we help you stay consistent and compliant.
+      .block-content(class="mb-14")
+        h3(class="text-secondary font-bold text-section mb-section-title") How We Support You
+        p.block-text From onboarding to ongoing updates, we make it easy to adopt and maintain our templates. You get clear guidance, versioned documents, and a single place to manage your process library. Support is available by email and phone so you can get answers when you need them.
+      .block-content
+        ul(class="list-none pl-0 space-y-4")
+          each item in ['Templates reviewed for clarity and compliance', 'Claims and payments workflows included', 'Updates when regulations or best practices change']
+            li(class="flex items-center gap-2 text-secondary font-bold text-lg leading-7")
+              span(class="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-[#6f759d] text-white text-sm") ✓
+              span= item

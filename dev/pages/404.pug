@@ -1,0 +1,18 @@
+extends ../layouts/layout
+
+block head
+  title Page Not Found | Trufla
+
+block pageHeaderData(pageData)
+  - pageData.title = 'Page Not Found'
+  - pageData.breadcrumbs = [{ label: 'Home', url: 'index.html' }, { label: '404', url: null }]
+
+block content
+  section.error-page
+    p.error-page-code 404 Error
+    p.error-page-text Sorry, we couldn't find the page you're looking for.
+    .error-page-actions
+      a.error-page-btn.error-page-btn-primary(href="index.html") Go back home
+      a.error-page-btn.error-page-btn-secondary(href="contact.html")
+        | Contact support
+        i.fa.fa-chevron-right(aria-hidden="true")

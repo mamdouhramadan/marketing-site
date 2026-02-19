@@ -1,0 +1,39 @@
+extends ../layouts/layout
+
+block head
+  title Trufla Task | Sign in
+
+block pageHeaderData(pageData)
+  - pageData.title = 'Sign in'
+  - pageData.breadcrumbs = [{ label: 'Home', url: 'index.html' }, { label: 'Sign in', url: null }]
+
+block content
+  main(class="flex items-center justify-center w-full px-4 min-h-[60vh]")
+    form(class="flex w-full flex-col max-w-96" action="#" method="post")
+      a.mb-8(href="index.html" title="Trufla - Home")
+        img(class="size-10 w-10 h-10" src="./images/logo-icon.svg" alt="Trufla" width="40" height="40")
+      p(class="mt-4 text-base text-gray-500/90") Please enter email and password to access.
+      div(class="mt-10")
+        label(class="font-medium" for="login-email") Email
+        input#login-email(
+          type="email"
+          name="email"
+          required
+          placeholder="Please enter your email"
+          class="mt-2 rounded-md ring ring-gray-200 focus:ring-2 focus:ring-primary outline-none px-3 py-3 w-full"
+        )
+      div(class="mt-6")
+        label(class="font-medium" for="login-password") Password
+        input#login-password(
+          type="password"
+          name="password"
+          required
+          placeholder="Please enter your password"
+          class="mt-2 rounded-md ring ring-gray-200 focus:ring-2 focus:ring-primary outline-none px-3 py-3 w-full"
+        )
+      button(
+        type="submit"
+        class="mt-8 py-3 w-full cursor-pointer rounded-md bg-primary text-white transition hover:bg-secondary"
+      ) Login
+      p(class="text-center py-8") Don't have an account?
+        a(href="signup.html" class="text-primary hover:underline") Sign up

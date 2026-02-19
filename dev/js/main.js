@@ -1,10 +1,5 @@
 $(document).ready(function () {
 
-  $(".nav-link .icon").click(function () {
-    $(this).siblings('.text').toggleClass('d-none');
-    console.log('Clicked');
-  });
-
   $(".scroll-top").click(function () {
     $("html, body").animate({ scrollTop: 0 }, "slow");
     return false;
@@ -28,16 +23,21 @@ $(window).on('load', function () {
 })
 
 async function registerSW() {
+  // Skip service worker on localhost so dev always gets fresh CSS/JS (no caching)
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+    if ('serviceWorker' in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      for (const reg of regs) await reg.unregister();
+    }
+    return;
+  }
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js', {
       scope: '.' // <--- THIS BIT IS REQUIRED
     }).then(function (registration) {
-      // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }, function (err) {
-      // registration failed :(
       console.log('ServiceWorker registration failed: ', err);
     });
   }
-
 }

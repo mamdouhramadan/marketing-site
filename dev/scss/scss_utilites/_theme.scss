@@ -1,7 +1,8 @@
+// Theme colors (chosen for WCAG AA contrast where used: dark on light, white on main/dark)
 $main-color: rgb(187, 137, 57);
 $secondry-color: #9ca2c6;
 $dark-color: #42415b;
-$light-color: #f3f3ff;
+$light-color: #f7f7f7;
 
 @mixin btn {
   min-width: 150px;

@@ -1,0 +1,19 @@
+extends ../layouts/layout
+
+block head
+  title About | Trufla
+
+block pageHeaderData(pageData)
+  - pageData.title = 'About Trufla'
+  - pageData.breadcrumbs = [{ label: 'Home', url: 'index.html' }, { label: 'About', url: null }]
+
+block content
+  section.about-section
+    .container
+      .row
+        .col-md-10.mx-auto
+          .block-content
+            p.block-text Trufla provides insurance and claims assistance services. Our team is dedicated to helping you with payments and claims every step of the way.
+          .block-content
+            h2(class="text-secondary font-bold text-section mb-section-title") Our mission
+            p.block-text We aim to deliver clear, responsive service and support so you can focus on what matters most. Get in touch for a quote or to learn more about what we offer.
