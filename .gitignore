@@ -83,6 +83,8 @@ typings/
 
 # Build output
 dist/
+dist/**
+dist/*
 
 # Ignore all markdown files except README
 *.md
