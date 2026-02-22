@@ -17,9 +17,9 @@ section(class="flex flex-col md:flex-row items-center justify-center gap-10 max-
   div(class="text-sm text-slate-600 dark:text-gray-400 max-w-lg")
     h1(class="text-xl uppercase font-semibold text-slate-700 dark:text-gray-100")= isArabic ? 'ماذا نفعل؟' : 'What we do?'
     div(class="w-24 h-[3px] rounded-full bg-gradient-to-r from-primary to-secondary")
-    p(class="mt-8")= isArabic ? 'تساعدك Trufla على البناء بشكل أسرع من خلال تحويل رؤيتك التصميمية إلى مكونات واجهة جاهزة للإنتاج ووظيفية بالكامل.' : 'PrebuiltUI helps you build faster by transforming your design vision into fully functional, production-ready UI components.'
-    p(class="mt-4")= isArabic ? 'سواء كنت تطلق تطبيق SaaS أو صفحة هبوط أو لوحة تحكم، فإن مجموعة مكونات Tailwind CSS الخاصة بنا مصممة لتسريع التطوير وتحسين تجربة المستخدم.' : "Whether you're launching a SaaS app, landing page or dashboard, our collection of Tailwind CSS components is crafted to boost your development speed and improve user experience."
-    p(class="mt-4")= isArabic ? 'من أنظمة تصميم الواجهة إلى التخطيطات الجاهزة للأتمتة، تمكّنك Trufla من البناء بشكل جميل والتوسع بسهولة.' : 'From UI design systems to automation-ready layouts, PrebuiltUI empowers you to build beautifully and scale effortlessly.'
+    p(class="mt-8")= isArabic ? 'تساعدك Trufla على العمل بشكل أسرع بقوالب وسير عمل جاهزة للتأمين والمطالبات والمدفوعات — جاهزة لفريقك من اليوم الأول.' : 'Trufla helps you build faster with templates and workflows for insurance, claims, and payments — ready for your team from day one.'
+    p(class="mt-4")= isArabic ? 'سواء كنت تتعامل مع المطالبات أو المدفوعات أو الامتثال، فإن قوالبنا وسير العمل مصممة لتوفير الوقت وتقليل الأخطاء والحفاظ على اتساق مستنداتك.' : "Whether you're handling claims, payments, or compliance, our templates and workflows are crafted to save time, reduce errors, and keep your documents consistent."
+    p(class="mt-4")= isArabic ? 'من نماذج المطالبات إلى سير عمل المدفوعات، تمكّن Trufla فرق التأمين من العمل بثقة والتوسع بدون تعقيد.' : 'From claim forms to payment workflows, Trufla empowers insurance teams to work with confidence and scale without the overhead.'
     a(href=isArabic ? '#' : '#' class="inline-flex items-center w-max gap-2 mt-8 hover:-translate-y-0.5 transition bg-primary hover:bg-secondary py-3 px-8 rounded-lg text-white no-underline")
       span= isArabic ? 'اقرأ المزيد' : 'Read more'
       span(class="fa fa-arrow-right text-white text-sm" aria-hidden="true")
@@ -51,10 +51,10 @@ section(class="")
           h6(class="text-base text-slate-900 dark:text-gray-100 font-medium mt-2")= isArabic ? aboutStatsAr[i].label : stat.label
 
 //- Our team
-section#team(class=" py-16 md:py-20")
+section#team(class="bg-page dark:bg-gray-900 py-16 md:py-20")
   div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center")
     h2(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= isArabic ? 'فريقنا' : 'Our Team'
-    p(class="w-[90%] max-w-xl mx-auto mb-10 text-sm text-slate-500 dark:text-gray-400 leading-relaxed md:w-3/5")= isArabic ? 'تعرف على الأشخاص وراء truWeb. نركز على عمليات واضحة ودعم سريع وقوالب تساعدك على التعامل مع المدفوعات والمطالبات بثقة.' : 'Meet the people behind truWeb. We focus on clear processes, fast support, and templates that help you handle payments and claims with confidence.'
+    p(class="w-[90%] max-w-xl mx-auto mb-10 text-sm text-slate-500 dark:text-gray-400 leading-relaxed md:w-3/5")= isArabic ? 'تعرف على الأشخاص وراء Trufla. نركز على عمليات واضحة ودعم سريع وقوالب تساعدك على التعامل مع المدفوعات والمطالبات بثقة.' : 'Meet the people behind Trufla. We focus on clear processes, fast support, and templates that help you handle payments and claims with confidence.'
     div(class="flex flex-nowrap overflow-x-auto gap-4 lg:grid lg:grid-cols-3 lg:overflow-visible pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory items-stretch")
       each member, i in teamMembers
         - var m = isArabic ? { role: teamMembersAr[i].role, bio: teamMembersAr[i].bio } : { role: member.role, bio: member.bio }
@@ -63,9 +63,11 @@ section#team(class=" py-16 md:py-20")
           h3(class="text-2xl font-medium text-secondary dark:text-gray-100 mt-2 mb-0 transition-colors group-hover:text-white")= member.name
           p(class="text-xl text-slate-500 dark:text-gray-400 m-0 transition-colors group-hover:text-white/85")= m.role
           p(class="text-sm text-slate-500 dark:text-gray-400 w-3/4 mt-4 mb-0 leading-snug transition-colors group-hover:text-white/75")= m.bio
-          p(class="text-[0.8125rem] text-slate-500 dark:text-gray-500 mt-1 mb-0 transition-colors group-hover:text-white/70")= member.phone
-          p(class="text-[0.8125rem] text-slate-500 dark:text-gray-500 mt-1 mb-0 transition-colors group-hover:text-white/70")= member.email
-          div(class="flex items-center justify-center gap-4 mt-6")
+          div(class="flex items-center justify-center gap-4 mt-6 flex-wrap")
+            a(href="tel:" + member.phone.replace(/\s/g, '') aria-label="Phone" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+              span(class="fa fa-phone" aria-hidden="true")
+            a(href="mailto:" + member.email aria-label="Email" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+              span(class="fa fa-envelope" aria-hidden="true")
             a(href="https://www.linkedin.com/" aria-label="LinkedIn" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
               span(class="fa fa-linkedin" aria-hidden="true")
             a(href="#" aria-label="Dribbble" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
