@@ -5,15 +5,21 @@ html(lang='en')
     block head
       title Trufla Task
   body(class="bg-page dark:bg-gray-900")
-    a.skip-link(href="#main-content") Skip to main content
-    include ../components/navbar
-    - var pageData = { title: '', breadcrumbs: [] }
-    block pageHeaderData(pageData)
-    if !isHomePage
-      include ../components/page-header
-      +pageHeader(pageData.title, pageData.breadcrumbs)
-    main.page#main-content(role="main")
-      block content
-    include ../components/footer
-    include ../components/cookies
-    include ../components/scripts
+    block vars
+    -
+      if (typeof isArabic === 'undefined') isArabic = false
+      if (typeof langSwitchBase === 'undefined') langSwitchBase = ''
+    include ../components/variables
+    div(dir=isArabic ? 'rtl' : 'ltr' lang=isArabic ? 'ar' : 'en')
+      a.skip-link(href="#main-content")= skipToContentLabel
+      include ../components/navbar
+      - var pageData = { title: '', breadcrumbs: [] }
+      block pageHeaderData(pageData)
+      if !isHomePage
+        include ../components/page-header
+        +pageHeader(pageData.title, pageData.breadcrumbs)
+      main.page#main-content(role="main")
+        block content
+      include ../components/footer
+      include ../components/cookies
+      include ../components/scripts

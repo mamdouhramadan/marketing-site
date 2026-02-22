@@ -1,26 +1,42 @@
-//- Cookie consent banner — bottom-right corner, hidden once accepted via localStorage
-#cookie-banner(class="fixed bottom-6 right-6 z-50 flex flex-col items-center w-96 max-w-[calc(100%-2rem)] bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-center p-6 rounded-lg border border-gray-500/30 dark:border-gray-600 text-sm shadow-lg transition-all duration-300" role="dialog" aria-label="Cookie consent" hidden)
+//- Cookie consent banner — uses variables from layout scope (navbar includes variables)
+- if (typeof isArabic === 'undefined') isArabic = false
+- if (typeof cookieConsentAriaLabel === 'undefined') cookieConsentAriaLabel = 'Cookie consent'
+- if (typeof cookieHeading === 'undefined') cookieHeading = 'We care about your privacy'
+- if (typeof cookieBodyBeforeLink === 'undefined') cookieBodyBeforeLink = 'This website uses cookies for functionality, analytics, and marketing. By accepting, you agree to our '
+- if (typeof cookiePolicyLinkText === 'undefined') cookiePolicyLinkText = 'Cookie Policy'
+- if (typeof cookieDecline === 'undefined') cookieDecline = 'Decline'
+- if (typeof cookieAccept === 'undefined') cookieAccept = 'Accept'
+#cookie-banner(class="hidden fixed bottom-6 right-6 z-50 flex-col items-center w-96 max-w-[calc(100%-2rem)] bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-center p-6 rounded-lg border border-gray-500/30 dark:border-gray-600 text-sm shadow-lg transition-all duration-300" role="dialog" aria-label=cookieConsentAriaLabel)
   img(class="w-14 h-14" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/cookies/cookieImage1.svg" alt="" aria-hidden="true")
-  h2(class="text-gray-800 dark:text-gray-100 text-xl font-medium pb-3 mt-2") We care about your privacy
-  p(class="w-11/12") This website uses cookies for functionality, analytics, and marketing. By accepting, you agree to our #[a(href="#" class="font-medium underline text-gray-700 dark:text-gray-200 hover:text-primary") Cookie Policy].
+  h2(class="text-gray-800 dark:text-gray-100 text-xl font-medium pb-3 mt-2")= cookieHeading
+  p(class="w-11/12")= cookieBodyBeforeLink
+    a(href="#" class="font-medium underline text-gray-700 dark:text-gray-200 hover:text-primary")= cookiePolicyLinkText
   div(class="flex items-center justify-center mt-6 gap-4 w-full")
-    button#cookie-decline(type="button" class="font-medium px-8 border border-gray-500/30 dark:border-gray-600 py-2 rounded hover:bg-primary/10 active:scale-95 transition text-gray-700 dark:text-gray-200") Decline
-    button#cookie-accept(type="button" class="bg-primary px-8 py-2 rounded text-white font-medium active:scale-95 transition hover:bg-secondary") Accept
+    button#cookie-decline(type="button" class="font-medium px-8 border border-gray-500/30 dark:border-gray-600 py-2 rounded hover:bg-primary/10 active:scale-95 transition text-gray-700 dark:text-gray-200")= cookieDecline
+    button#cookie-accept(type="button" class="bg-primary px-8 py-2 rounded text-white font-medium active:scale-95 transition hover:bg-secondary")= cookieAccept
 
 script.
   (function() {
+    try {
+      if (localStorage.getItem('cookie_consent') === 'accepted') return;
+    } catch(e) { return; }
+
     var banner = document.getElementById('cookie-banner');
     if (!banner) return;
 
-    if (localStorage.getItem('cookie_consent') === 'accepted') return;
-
-    banner.hidden = false;
+    banner.classList.remove('hidden');
+    banner.style.display = 'flex';
 
     function dismiss(accepted) {
-      if (accepted) localStorage.setItem('cookie_consent', 'accepted');
+      try {
+        if (accepted) localStorage.setItem('cookie_consent', 'accepted');
+      } catch(e) {}
       banner.style.opacity = '0';
       banner.style.transform = 'translateY(1rem)';
-      setTimeout(function() { banner.hidden = true; }, 300);
+      setTimeout(function() {
+        banner.style.display = 'none';
+        banner.classList.add('hidden');
+      }, 300);
     }
 
     document.getElementById('cookie-accept').addEventListener('click', function() { dismiss(true); });

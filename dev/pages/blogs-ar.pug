@@ -1,0 +1,129 @@
+extends ../layouts/layout
+
+block vars
+  - var isArabic = true
+  - var langSwitchBase = 'blogs'
+
+block head
+  title المدونة | ترافلا
+
+block pageHeaderData(pageData)
+  - pageData.title = blogsPageTitle
+  - pageData.breadcrumbs = [{ label: blogsBreadcrumbHome, url: 'index.html' }, { label: blogsBreadcrumbBlogs, url: null }]
+
+block content
+  include ../data/blogs-data
+  section(class="bg-page dark:bg-gray-900 py-16 md:py-20")
+    div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+      - var inputStyle = 'h-[46px] rounded-md border border-gray-500/30 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 outline-none focus:ring-2 focus:ring-primary px-3 text-sm'
+      div(class="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between mb-10")
+        div(class="flex flex-wrap items-center gap-3 flex-1 w-full")
+          label(for="blog-search" class="sr-only")= blogsSearchAriaLabel
+          div(class="flex items-center border border-gray-500/30 dark:border-gray-600 pl-3 gap-2 bg-white dark:bg-gray-800 h-[46px] rounded-md overflow-hidden max-w-md w-full focus-within:ring-2 focus-within:ring-primary")
+            span(class="fa fa-search text-gray-500 dark:text-gray-400 text-base" aria-hidden="true")
+            input#blog-search(type="search" placeholder=blogsSearchPlaceholder class="flex-1 min-w-0 w-full h-full outline-none text-gray-500 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 text-sm bg-transparent" aria-label=blogsSearchAriaLabel)
+          select#blog-category(aria-label=blogsFilterCategoryAria class=inputStyle + " w-full sm:w-auto min-w-[160px]")
+            option(value="")= blogsAllCategories
+            - var categories = []
+            each b in blogs
+              if categories.indexOf(b.category) === -1
+                - categories.push(b.category)
+            each cat in categories.sort()
+              option(value=cat)= cat
+        div(class="flex items-center gap-2")
+          label(for="blog-sort" class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap")= blogsSortBy
+          select#blog-sort(aria-label=blogsSortAriaLabel class=inputStyle + " min-w-[160px]")
+            option(value="date-desc")= blogsSortDateNewest
+            option(value="date-asc")= blogsSortDateOldest
+            option(value="title-asc")= blogsSortTitleAZ
+            option(value="title-desc")= blogsSortTitleZA
+
+      div#blog-list(class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8")
+
+      nav#blog-pagination(aria-label=blogsPaginationAria class="flex flex-wrap items-center justify-center gap-2 mt-12")
+        button#blog-prev(type="button" class="px-4 py-2 rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50" disabled)= blogsPrevious
+        div#blog-pages(class="flex gap-1")
+        button#blog-next(type="button" class="px-4 py-2 rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50")= blogsNext
+
+  script.
+    window.__BLOGS__ = !{JSON.stringify(blogs)};
+    window.__BLOG_DETAIL_BASE__ = !{JSON.stringify(isArabic ? 'blog-detail-ar.html' : 'blog-detail.html')};
+  script.
+    (function() {
+      var BLOGS = window.__BLOGS__ || [];
+      var PER_PAGE = 6;
+      var currentPage = 1;
+      var container = document.getElementById('blog-list');
+      var prevBtn = document.getElementById('blog-prev');
+      var nextBtn = document.getElementById('blog-next');
+      var pagesEl = document.getElementById('blog-pages');
+      var searchEl = document.getElementById('blog-search');
+      var categoryEl = document.getElementById('blog-category');
+      var sortEl = document.getElementById('blog-sort');
+
+      function getFilteredAndSorted() {
+        var q = (searchEl && searchEl.value) ? searchEl.value.toLowerCase().trim() : '';
+        var cat = (categoryEl && categoryEl.value) ? categoryEl.value : '';
+        var sort = (sortEl && sortEl.value) ? sortEl.value : 'date-desc';
+        var list = BLOGS.filter(function(b) {
+          var matchSearch = !q || b.title.toLowerCase().indexOf(q) >= 0 || (b.excerpt && b.excerpt.toLowerCase().indexOf(q) >= 0);
+          var matchCat = !cat || b.category === cat;
+          return matchSearch && matchCat;
+        });
+        if (sort === 'date-desc') list.sort(function(a,b) { return b.date < a.date ? -1 : 1; });
+        else if (sort === 'date-asc') list.sort(function(a,b) { return a.date < b.date ? -1 : 1; });
+        else if (sort === 'title-asc') list.sort(function(a,b) { return a.title.localeCompare(b.title); });
+        else if (sort === 'title-desc') list.sort(function(a,b) { return b.title.localeCompare(b.title); });
+        return list;
+      }
+
+      var DETAIL_BASE = window.__BLOG_DETAIL_BASE__ || 'blog-detail.html';
+      function renderCards(list) {
+        var start = (currentPage - 1) * PER_PAGE;
+        var slice = list.slice(start, start + PER_PAGE);
+        if (!container) return;
+        container.innerHTML = slice.map(function(blog) {
+          return '<article class="blog-card bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition shadow-sm hover:shadow-md">' +
+            '<a href="' + DETAIL_BASE + '?id=' + blog.id + '" class="block">' +
+            '<img class="w-full aspect-[16/10] object-cover" src="' + (blog.image || '') + '" alt="">' +
+            '<div class="p-5">' +
+            '<p class="text-sm text-primary font-medium">' + (blog.category || '') + '</p>' +
+            '<h2 class="text-lg font-bold text-secondary dark:text-gray-100 mt-1 line-clamp-2">' + (blog.title || '') + '</h2>' +
+            '<p class="text-sm text-gray-500 dark:text-gray-400 mt-2">' + (blog.date || '') + ' · ' + (blog.author || '') + '</p>' +
+            '<p class="text-gray-600 dark:text-gray-300 text-sm mt-2 line-clamp-2">' + (blog.excerpt || '') + '</p>' +
+            '</div></a></article>';
+        }).join('');
+      }
+
+      function renderPagination(total) {
+        var totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+        if (prevBtn) prevBtn.disabled = currentPage <= 1;
+        if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+        if (pagesEl) {
+          var html = '';
+          for (var i = 1; i <= totalPages; i++) {
+            var active = i === currentPage;
+            html += '<button type="button" class="blog-page-btn px-3 py-1.5 rounded ' + (active ? 'bg-primary text-white' : 'border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700') + '" data-page="' + i + '">' + i + '</button>';
+          }
+          pagesEl.innerHTML = html;
+          pagesEl.querySelectorAll('.blog-page-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() { currentPage = parseInt(btn.getAttribute('data-page'), 10); update(); });
+          });
+        }
+      }
+
+      function update() {
+        var list = getFilteredAndSorted();
+        currentPage = Math.min(currentPage, Math.max(1, Math.ceil(list.length / PER_PAGE)) || 1);
+        renderCards(list);
+        renderPagination(list.length);
+      }
+
+      if (searchEl) searchEl.addEventListener('input', function() { currentPage = 1; update(); });
+      if (categoryEl) categoryEl.addEventListener('change', function() { currentPage = 1; update(); });
+      if (sortEl) sortEl.addEventListener('change', function() { currentPage = 1; update(); });
+      if (prevBtn) prevBtn.addEventListener('click', function() { if (currentPage > 1) { currentPage--; update(); } });
+      if (nextBtn) nextBtn.addEventListener('click', function() { var list = getFilteredAndSorted(); var totalPages = Math.ceil(list.length / PER_PAGE); if (currentPage < totalPages) { currentPage++; update(); } });
+
+      update();
+    })();

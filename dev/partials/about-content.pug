@@ -1,0 +1,74 @@
+//- About page content. Expects isArabic; uses aboutApps, aboutStats, teamMembers from data includes.
+- if (typeof isArabic === 'undefined') isArabic = false
+
+//- Arabic copy for about apps (same order as about-apps-data)
+- var aboutAppsAr = [{ title: 'أداء فائق السرعة', description: 'مبني على السرعة — أوقات تحميل قصيرة وتسليم محسّن.' }, { title: 'مكونات مصممة بدقة', description: 'مكونات واجهة حديثة ومثالية جاهزة لأي مشروع.' }, { title: 'تكامل جاهز للاستخدام', description: 'إعداد بسيط مع دعم React وNext.js وTailwind CSS.' }, { title: 'واضح وشامل', description: 'ابدأ بسرعة مع أمثلة استخدام ومعاينات حية ورمز.' }, { title: 'قابل للتخصيص بالكامل', description: 'تكيّف الأنماط والألوان والتخطيط بسهولة ليتوافق مع علامتك أو منتجك.' }, { title: 'إمكانية الوصول أولاً', description: 'مبني وفق معايير WCAG لضمان تجارب مستخدم شاملة.' }]
+//- Arabic copy for stats labels (same order as about-stats-data)
+- var aboutStatsAr = [{ label: 'زوار فريدون' }, { label: 'إجمالي المبيعات' }, { label: 'رضا العملاء' }, { label: 'وقت تشغيل النظام (بالساعات)' }]
+//- Arabic copy for team (role, bio; same order as team-data)
+- var teamMembersAr = [{ role: 'رئيسة المطالبات', bio: 'تقود عمليات المطالبات ودعم العملاء. مديرة مطالبات سابقة بأكثر من 10 سنوات في التأمين.' }, { role: 'قائد نجاح العملاء', bio: 'يساعد الفرق على اعتماد قوالبنا وسير العمل. يركز على الانضمام والتدريب.' }, { role: 'المنتج والعمليات', bio: 'تشرف على تصميم المنتج والعمليات. تضمن بقاء قوالبنا محدثة وفق اللوائح.' }]
+
+//- What we do? (hero block)
+section(class="flex flex-col md:flex-row items-center justify-center gap-10 max-md:px-4 py-16 md:py-20 bg-page dark:bg-gray-900")
+  div(class="relative shadow-2xl shadow-primary/40 rounded-2xl overflow-hidden shrink-0")
+    img(class="max-w-md w-full object-cover rounded-2xl" src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?q=80&w=451&h=451&auto=format&fit=crop" alt="")
+    div(class="gap-1 max-w-72 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white size-16 flex items-center justify-center aspect-square backdrop-blur rounded-full")
+      span(class="fa fa-play text-white text-lg ml-0.5" aria-hidden="true")
+  div(class="text-sm text-slate-600 dark:text-gray-400 max-w-lg")
+    h1(class="text-xl uppercase font-semibold text-slate-700 dark:text-gray-100")= isArabic ? 'ماذا نفعل؟' : 'What we do?'
+    div(class="w-24 h-[3px] rounded-full bg-gradient-to-r from-primary to-secondary")
+    p(class="mt-8")= isArabic ? 'تساعدك Trufla على البناء بشكل أسرع من خلال تحويل رؤيتك التصميمية إلى مكونات واجهة جاهزة للإنتاج ووظيفية بالكامل.' : 'PrebuiltUI helps you build faster by transforming your design vision into fully functional, production-ready UI components.'
+    p(class="mt-4")= isArabic ? 'سواء كنت تطلق تطبيق SaaS أو صفحة هبوط أو لوحة تحكم، فإن مجموعة مكونات Tailwind CSS الخاصة بنا مصممة لتسريع التطوير وتحسين تجربة المستخدم.' : "Whether you're launching a SaaS app, landing page or dashboard, our collection of Tailwind CSS components is crafted to boost your development speed and improve user experience."
+    p(class="mt-4")= isArabic ? 'من أنظمة تصميم الواجهة إلى التخطيطات الجاهزة للأتمتة، تمكّنك Trufla من البناء بشكل جميل والتوسع بسهولة.' : 'From UI design systems to automation-ready layouts, PrebuiltUI empowers you to build beautifully and scale effortlessly.'
+    a(href=isArabic ? '#' : '#' class="inline-flex items-center w-max gap-2 mt-8 hover:-translate-y-0.5 transition bg-primary hover:bg-secondary py-3 px-8 rounded-lg text-white no-underline")
+      span= isArabic ? 'اقرأ المزيد' : 'Read more'
+      span(class="fa fa-arrow-right text-white text-sm" aria-hidden="true")
+
+//- About our apps
+section(class="relative  py-16 md:py-20 overflow-hidden")
+  div(class="relative max-w-5xl mx-auto px-8 md:px-4 lg:px-8")
+    h1(class="text-3xl font-semibold text-center mx-auto text-secondary dark:text-gray-100")= isArabic ? 'حول تطبيقاتنا' : 'About our apps'
+    p(class="text-sm text-slate-500 dark:text-gray-400 text-center mt-2 max-w-lg mx-auto")= isArabic ? 'مجموعة مرئية من أحدث أعمالنا — كل قطعة مصنوعة بقصد وعاطفة وأسلوب.' : 'A visual collection of our most recent works — each piece crafted with intention, emotion and style.'
+    div(class="size-[520px] -top-80 left-1/2 -translate-x-1/2 rounded-full absolute blur-[300px] -z-10 bg-[#FBFFE1] dark:bg-primary/20")
+    div(class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 pt-16")
+      each item, i in aboutApps
+        - var app = isArabic ? aboutAppsAr[i] : item
+        div
+          div(class="size-10 p-2 bg-primary/10 dark:bg-primary/20 border border-primary/30 dark:border-primary/40 rounded flex items-center justify-center")
+            span(class="fa " + item.icon + " text-primary text-lg" aria-hidden="true")
+          div(class="mt-5 space-y-2")
+            h3(class="text-base font-medium text-slate-600 dark:text-gray-200")= app.title
+            p(class="text-sm text-slate-500 dark:text-gray-400")= app.description
+
+//- Statistics
+section(class="")
+  div(class="bg-white dark:bg-gray-900 rounded-xl p-10 max-w-7xl mx-auto")
+    div(class="grid lg:grid-cols-4 sm:grid-cols-2 gap-x-6 gap-y-12 lg:divide-x lg:divide-gray-300 dark:lg:divide-gray-700")
+      each stat, i in aboutStats
+        div(class="text-center")
+          span(class="fa " + stat.icon + " text-primary w-10 text-4xl inline-block" aria-hidden="true")
+          h3(class="text-3xl font-bold text-primary mt-6")= stat.value
+          h6(class="text-base text-slate-900 dark:text-gray-100 font-medium mt-2")= isArabic ? aboutStatsAr[i].label : stat.label
+
+//- Our team
+section#team(class=" py-16 md:py-20")
+  div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center")
+    h2(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= isArabic ? 'فريقنا' : 'Our Team'
+    p(class="w-[90%] max-w-xl mx-auto mb-10 text-sm text-slate-500 dark:text-gray-400 leading-relaxed md:w-3/5")= isArabic ? 'تعرف على الأشخاص وراء truWeb. نركز على عمليات واضحة ودعم سريع وقوالب تساعدك على التعامل مع المدفوعات والمطالبات بثقة.' : 'Meet the people behind truWeb. We focus on clear processes, fast support, and templates that help you handle payments and claims with confidence.'
+    div(class="flex flex-nowrap overflow-x-auto gap-4 lg:grid lg:grid-cols-3 lg:overflow-visible pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory items-stretch")
+      each member, i in teamMembers
+        - var m = isArabic ? { role: teamMembersAr[i].role, bio: teamMembersAr[i].bio } : { role: member.role, bio: member.bio }
+        div(class="group shrink-0 min-w-[57.14%] lg:min-w-0 snap-center snap-always lg:snap-align-none flex flex-col items-center text-center p-8 md:p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md cursor-pointer transition-colors hover:border-secondary hover:bg-secondary")
+          img(class="w-24 h-24 rounded-full object-cover block" src=member.img alt=member.alt width="96" height="96")
+          h3(class="text-2xl font-medium text-secondary dark:text-gray-100 mt-2 mb-0 transition-colors group-hover:text-white")= member.name
+          p(class="text-xl text-slate-500 dark:text-gray-400 m-0 transition-colors group-hover:text-white/85")= m.role
+          p(class="text-sm text-slate-500 dark:text-gray-400 w-3/4 mt-4 mb-0 leading-snug transition-colors group-hover:text-white/75")= m.bio
+          p(class="text-[0.8125rem] text-slate-500 dark:text-gray-500 mt-1 mb-0 transition-colors group-hover:text-white/70")= member.phone
+          p(class="text-[0.8125rem] text-slate-500 dark:text-gray-500 mt-1 mb-0 transition-colors group-hover:text-white/70")= member.email
+          div(class="flex items-center justify-center gap-4 mt-6")
+            a(href="https://www.linkedin.com/" aria-label="LinkedIn" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+              span(class="fa fa-linkedin" aria-hidden="true")
+            a(href="#" aria-label="Dribbble" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+              span(class="fa fa-dribbble" aria-hidden="true")
+            a(href="#" aria-label="Twitter" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+              span(class="fa fa-twitter" aria-hidden="true")

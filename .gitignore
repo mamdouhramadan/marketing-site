@@ -80,7 +80,14 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-# dist
+
+# Build output
+dist/
+
+# Ignore all markdown files except README
+*.md
+!README.md
+!readme.md
 
 # Gatsby files
 .cache/
@@ -102,9 +109,3 @@ typings/
 
 # TernJS port file
 .tern-port
-
-# dist
-dist/
-
-dist/**
-dist/*

@@ -1,0 +1,16 @@
+extends ../layouts/layout
+
+block vars
+  - var isArabic = true
+  - var langSwitchBase = 'pricing'
+
+block head
+  title الأسعار | ترافلا
+
+block pageHeaderData(pageData)
+  - pageData.title = isArabic ? 'الأسعار' : 'Pricing'
+  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: 'index.html' }, { label: 'الأسعار', url: null }] : [{ label: 'Home', url: 'index.html' }, { label: 'Pricing', url: null }]
+
+block content
+  include ../data/pricing-data
+  include ../partials/pricing-content

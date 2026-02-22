@@ -22,7 +22,7 @@ gulp.task('html', function () {
     return gulp.src('dev/pages/*.pug')
         .pipe(data(function (file) {
             var basename = path.basename(file.relative, '.pug');
-            return { isHomePage: basename === 'index' };
+            return { isHomePage: basename === 'index' || basename === 'index-ar' };
         }))
         .pipe(pug({
             pretty: true

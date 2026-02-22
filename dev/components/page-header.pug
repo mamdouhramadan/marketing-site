@@ -1,10 +1,11 @@
 //- Page header with title and breadcrumb. Use with: +pageHeader(title, breadcrumbs)
-//- breadcrumbs: array of { label: string, url: string|null }
+//- breadcrumbs: array of { label: string, url: string|null }. Expects breadcrumbAriaLabel from variables.
 mixin pageHeader(title, breadcrumbs)
+  - var _breadcrumbAria = typeof breadcrumbAriaLabel !== 'undefined' ? breadcrumbAriaLabel : 'Breadcrumb'
   .container(class="max-w-7xl rounded-xl !mt-12 mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col py-12 bg-primary text-white ")
         h1(class="text-white text-center font-bold text-section mb-0")= title
         if breadcrumbs && breadcrumbs.length
-          nav(aria-label="Breadcrumb" class="mb-3")
+          nav(aria-label=_breadcrumbAria class="mb-3")
             ol(class="flex flex-wrap items-center justify-center gap-2 text-sm text-white/80")
               each crumb, i in breadcrumbs
                 li(class="flex items-center gap-2")

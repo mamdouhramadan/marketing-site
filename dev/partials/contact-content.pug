@@ -1,0 +1,97 @@
+//- Contact page content. Expects variables (contactPageTitle, etc.) from variables.pug via layout.
+//- Contact info cards
+section(class="bg-page dark:bg-gray-900 py-16 md:py-20")
+  div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+    div(class="grid md:grid-cols-3 gap-8 md:gap-10")
+      div(class="text-center md:text-left")
+        div(class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary")
+          span(class="fa fa-envelope text-2xl" aria-hidden="true")
+        p(class="text-lg font-bold mt-3 text-secondary dark:text-gray-100")= contactEmailTitle
+        p(class="text-gray-500 dark:text-gray-400 mt-1 mb-4")= contactEmailDesc
+        a(href="mailto:contact@trufla.example.com" class="text-primary font-semibold hover:text-secondary") contact@trufla.example.com
+      div(class="text-center md:text-left")
+        div(class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary")
+          span(class="fa fa-map-marker text-2xl" aria-hidden="true")
+        p(class="text-lg font-bold mt-3 text-secondary dark:text-gray-100")= contactOfficeTitle
+        p(class="text-gray-500 dark:text-gray-400 mt-1 mb-4")= contactOfficeDesc
+        span(class="text-primary font-semibold")= contactOfficeAddress
+      div(class="text-center md:text-left")
+        div(class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary")
+          span(class="fa fa-phone text-2xl" aria-hidden="true")
+        p(class="text-lg font-bold mt-3 text-secondary dark:text-gray-100")= contactPhoneTitle
+        p(class="text-gray-500 dark:text-gray-400 mt-1 mb-4")= contactPhoneDesc
+        a(href="tel:+1234567789" class="text-primary font-semibold hover:text-secondary") (+1) 234 - 4567 - 789
+
+//- Contact form
+section(aria-label="Contact form" class="")
+  div(class="max-w-7xl bg-white dark:bg-gray-800  rounded-xl mx-auto lg:p-12 p-6")
+    div(class="max-w-3xl mx-auto")
+      h2(class="text-secondary dark:text-gray-100 text-center font-bold text-section mb-section-title")= contactFormTitle
+      p(class="text-gray-500 dark:text-gray-400 text-center mb-8")= contactFormIntro
+      form(class="flex flex-col gap-6" action="#" method="post")
+        div(class="grid grid-cols-1 md:grid-cols-2 gap-6")
+          div(class="flex flex-col gap-2")
+            label(for="contact-name" class="font-medium text-secondary dark:text-gray-100")= contactLabelName
+            input#contact-name(
+              type="text"
+              name="name"
+              required
+              placeholder=contactPlaceholderName
+              class="rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            )
+          div(class="flex flex-col gap-2")
+            label(for="contact-email" class="font-medium text-secondary dark:text-gray-100")= contactLabelEmail
+            input#contact-email(
+              type="email"
+              name="email"
+              required
+              placeholder=contactPlaceholderEmail
+              class="rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            )
+          div(class="flex flex-col gap-2")
+            label(for="contact-phone" class="font-medium text-secondary dark:text-gray-100")= contactLabelPhone
+            input#contact-phone(
+              type="tel"
+              name="phone"
+              placeholder=contactPlaceholderPhone
+              class="rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            )
+          div(class="flex flex-col gap-2")
+            label(for="contact-subject" class="font-medium text-secondary dark:text-gray-100")= contactLabelSubject
+            input#contact-subject(
+              type="text"
+              name="subject"
+              placeholder=contactPlaceholderSubject
+              class="rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            )
+        div(class="flex flex-col gap-2 w-full")
+          label(for="contact-message" class="font-medium text-secondary dark:text-gray-100")= contactLabelMessage
+          textarea#contact-message(
+            name="message"
+            required
+            rows="5"
+            placeholder=contactPlaceholderMessage
+            class="w-full rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-2.5 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition resize-y min-h-[120px]"
+          )
+        div(class="w-full")
+          button(
+            type="submit"
+            class="w-full md:w-auto min-w-[160px] px-6 py-3 rounded-md bg-primary text-white font-semibold hover:bg-secondary transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          )= contactSubmitButton
+
+//- Google Map
+section(aria-label="Office location map" class="bg-page dark:bg-gray-900 py-16 md:py-20")
+  div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+    h2(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= contactMapTitle
+    div(class="w-full overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700  min-h-[240px] bg-gray-100 dark:bg-gray-800")
+      iframe(
+        title=contactMapIframeTitle
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976373946234!3d40.69766374865766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1708000000000!5m2!1sen!2s"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="block w-full h-[400px] min-h-[240px]"
+      )

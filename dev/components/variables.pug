@@ -1,4 +1,99 @@
-- var navLinks = [{ label: 'Payments', href: 'index.html' }, { label: 'Claims Assistance', href: 'index.html#team' }, { label: 'About', href: 'about.html' }, { label: 'Contact', href: 'contact.html' }]
+//- Ensure isArabic is set (layout sets it from page block vars; default false)
+- if (typeof isArabic === 'undefined') isArabic = false
+
+//- Site branding (navbar + footer)
+- var siteName = isArabic ? 'ترافلا' : 'Trufla'
+- var homeUrl = isArabic ? 'index-ar.html' : 'index.html'
+- var logo = { src: './images/logo-placeholder.svg', alt: isArabic ? (siteName + ' - الرئيسية') : (siteName + ' - Home') }
+
+//- Shared nav menu (navbar + footer). Hrefs point to -ar.html when isArabic.
+- var navLinks = isArabic ? [{ label: 'المدونة', href: 'blogs-ar.html' }, { label: 'الأسعار', href: 'pricing-ar.html' }, { label: 'من نحن', href: 'about-ar.html' }, { label: 'اتصل بنا', href: 'contact-ar.html' }] : [{ label: 'Blogs', href: 'blogs.html' }, { label: 'Pricing', href: 'pricing.html' }, { label: 'About', href: 'about.html' }, { label: 'Contact', href: 'contact.html' }]
+
+//- Navbar labels and CTA
+- var navHomeLabel = isArabic ? 'الرئيسية' : 'Home'
+- var navCtaLabel = isArabic ? 'احصل على عرض سعر' : 'Get a Quote'
+- var navCtaHref = isArabic ? 'contact-ar.html' : 'contact.html'
+
+//- Footer "Company" column links (hrefs point to -ar.html when isArabic where available)
+- var footerCompanyLinks = isArabic ? [{ label: 'من نحن', href: 'about-ar.html' }, { label: 'الوظائف', href: '#', badge: 'نحن نوظف!' }, { label: 'اتصل بنا', href: 'contact-ar.html' }, { label: 'سياسة الخصوصية', href: '#' }] : [{ label: 'About us', href: 'about.html' }, { label: 'Careers', href: '#', badge: "We're hiring!" }, { label: 'Contact us', href: 'contact.html' }, { label: 'Privacy policy', href: '#' }]
+
+//- Footer section headings
+- var footerMenuHeading = isArabic ? 'القائمة' : 'Menu'
+
+//- Footer brand column: about text (Font Awesome 4 icon classes for social)
+- var footerAboutText = isArabic ? 'ترافلا تقدم حلولاً مبتكرة تساعد الشركات على النمو والنجاح. نجمع الخبرة مع نهج يركز على العميل لتقديم نتائج ذات قيمة. تابعنا للحصول على آخر التحديثات والرؤى.' : "Trufla delivers innovative solutions that help businesses grow and succeed. We combine expertise with a customer-first approach to deliver results that matter. Follow us for updates, insights, and the latest from our team."
+- var footerSocialLinks = isArabic ? [{ icon: 'fa fa-facebook', href: '#', ariaLabel: 'فيسبوك' }, { icon: 'fa fa-twitter', href: '#', ariaLabel: 'تويتر' }, { icon: 'fa fa-linkedin', href: '#', ariaLabel: 'لينكد إن' }, { icon: 'fa fa-instagram', href: '#', ariaLabel: 'انستغرام' }, { icon: 'fa fa-youtube-play', href: '#', ariaLabel: 'يوتيوب' }] : [{ icon: 'fa fa-facebook', href: '#', ariaLabel: 'Facebook' }, { icon: 'fa fa-twitter', href: '#', ariaLabel: 'Twitter' }, { icon: 'fa fa-linkedin', href: '#', ariaLabel: 'LinkedIn' }, { icon: 'fa fa-instagram', href: '#', ariaLabel: 'Instagram' }, { icon: 'fa fa-youtube-play', href: '#', ariaLabel: 'YouTube' }]
+
+//- Footer newsletter
+- var newsletterHeading = isArabic ? 'اشترك في نشرتنا الإخبارية' : 'Subscribe to our newsletter'
+- var newsletterDescription = isArabic ? 'آخر الأخبار والمقالات والموارد، تُرسل إلى بريدك أسبوعياً.' : 'The latest news, articles, and resources, sent to your inbox weekly.'
+- var newsletterPlaceholder = isArabic ? 'أدخل بريدك الإلكتروني' : 'Enter your email'
+- var newsletterButton = isArabic ? 'اشترك' : 'Subscribe'
+
+//- Footer copyright
+- var copyrightSuffix = isArabic ? 'جميع الحقوق محفوظة.' : 'All Right Reserved.'
+- var footerCompanyHeading = isArabic ? 'الشركة' : 'Company'
+
+//- Accessibility / shared UI labels (skip link, aria-labels)
+- var skipToContentLabel = isArabic ? 'انتقل للمحتوى الرئيسي' : 'Skip to main content'
+- var navAriaLabel = isArabic ? 'التنقل الرئيسي' : 'Main navigation'
+- var themeToggleAriaLabel = isArabic ? 'تبديل الوضع الداكن' : 'Toggle dark mode'
+- var scrollTopAriaLabel = isArabic ? 'انتقل للأعلى' : 'Scroll to top'
+- var scrollTopTitle = isArabic ? 'انتقل للأعلى' : 'Scroll to top'
+- var breadcrumbAriaLabel = isArabic ? 'مسار التنقل' : 'Breadcrumb'
+
+//- Cookie consent banner
+- var cookieConsentAriaLabel = isArabic ? 'موافقة ملفات التعريف' : 'Cookie consent'
+- var cookieHeading = isArabic ? 'نحن نهتم بخصوصيتك' : 'We care about your privacy'
+- var cookieBodyBeforeLink = isArabic ? 'يستخدم هذا الموقع ملفات تعريف الارتباط للوظائف والتحليلات والتسويق. بالموافقة، فإنك توافق على ' : 'This website uses cookies for functionality, analytics, and marketing. By accepting, you agree to our '
+- var cookiePolicyLinkText = isArabic ? 'سياسة ملفات التعريف' : 'Cookie Policy'
+- var cookieDecline = isArabic ? 'رفض' : 'Decline'
+- var cookieAccept = isArabic ? 'قبول' : 'Accept'
+
+//- ---------- Contact page ----------
+- var contactPageTitle = isArabic ? 'نود أن نسمع منكم' : "We'd love to hear from you"
+- var contactBreadcrumbHome = isArabic ? 'الرئيسية' : 'Home'
+- var contactBreadcrumbContact = isArabic ? 'اتصل بنا' : 'Contact'
+- var contactEmailTitle = isArabic ? 'الدعم بالبريد الإلكتروني' : 'Email Support'
+- var contactEmailDesc = isArabic ? 'فريقنا يرد في الوقت الفعلي.' : 'Our team can respond in real time.'
+- var contactOfficeTitle = isArabic ? 'زيارة مكتبنا' : 'Visit Our Office'
+- var contactOfficeDesc = isArabic ? 'زر موقعنا شخصياً.' : 'Visit our location in real life.'
+- var contactOfficeAddress = isArabic ? '221ب شارع الابتدائية، نيويورك' : '221b Elementary Avenue, NY'
+- var contactPhoneTitle = isArabic ? 'اتصل بنا مباشرة' : 'Call Us Directly'
+- var contactPhoneDesc = isArabic ? 'متاح خلال ساعات العمل.' : 'Available during working hours.'
+- var contactFormTitle = isArabic ? 'أرسل لنا رسالة' : 'Send us a message'
+- var contactFormIntro = isArabic ? 'نحن هنا لمساعدتك في أي استفسارات أو مخاوف. يرجى تعبئة النموذج أدناه وسنرد عليك في أقرب وقت ممكن.' : "We're here to help you with any questions or concerns you may have. Please fill out the form below and we'll get back to you as soon as possible."
+- var contactLabelName = isArabic ? 'الاسم' : 'Name'
+- var contactPlaceholderName = isArabic ? 'اسمك' : 'Your name'
+- var contactLabelEmail = isArabic ? 'البريد الإلكتروني' : 'Email'
+- var contactPlaceholderEmail = isArabic ? 'بريدك@example.com' : 'your@email.com'
+- var contactLabelPhone = isArabic ? 'الهاتف' : 'Phone'
+- var contactPlaceholderPhone = isArabic ? '+1 (555) 000-0000' : '+1 (555) 000-0000'
+- var contactLabelSubject = isArabic ? 'الموضوع' : 'Subject'
+- var contactPlaceholderSubject = isArabic ? 'كيف يمكننا المساعدة؟' : 'How can we help?'
+- var contactLabelMessage = isArabic ? 'الرسالة' : 'Message'
+- var contactPlaceholderMessage = isArabic ? 'رسالتك...' : 'Your message...'
+- var contactSubmitButton = isArabic ? 'إرسال الرسالة' : 'Send message'
+- var contactMapTitle = isArabic ? 'موقعنا' : 'Our location'
+- var contactMapIframeTitle = isArabic ? 'موقع المكتب - 221ب شارع الابتدائية، نيويورك' : 'Office location - 221b Elementary Avenue, NY'
+
+//- ---------- Blogs page ----------
+- var blogsPageTitle = isArabic ? 'المدونة' : 'Blogs'
+- var blogsBreadcrumbHome = isArabic ? 'الرئيسية' : 'Home'
+- var blogsBreadcrumbBlogs = isArabic ? 'المدونة' : 'Blogs'
+- var blogsSearchPlaceholder = isArabic ? 'البحث في المدونة...' : 'Search blogs...'
+- var blogsSearchAriaLabel = isArabic ? 'البحث في المدونة' : 'Search blogs'
+- var blogsAllCategories = isArabic ? 'جميع التصنيفات' : 'All categories'
+- var blogsFilterCategoryAria = isArabic ? 'تصفية حسب التصنيف' : 'Filter by category'
+- var blogsSortBy = isArabic ? 'ترتيب حسب' : 'Sort by'
+- var blogsSortAriaLabel = isArabic ? 'ترتيب المدونات' : 'Sort blogs'
+- var blogsSortDateNewest = isArabic ? 'التاريخ (الأحدث)' : 'Date (newest)'
+- var blogsSortDateOldest = isArabic ? 'التاريخ (الأقدم)' : 'Date (oldest)'
+- var blogsSortTitleAZ = isArabic ? 'العنوان (أ–ي)' : 'Title (A–Z)'
+- var blogsSortTitleZA = isArabic ? 'العنوان (ي–أ)' : 'Title (Z–A)'
+- var blogsPrevious = isArabic ? 'السابق' : 'Previous'
+- var blogsNext = isArabic ? 'التالي' : 'Next'
+- var blogsPaginationAria = isArabic ? 'ترقيم المدونة' : 'Blog pagination'
 
 - var otherLinks = [{ icon: 'fa fa-phone', number: '555-555-5555' }]
 

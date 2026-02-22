@@ -1,0 +1,31 @@
+//- Pricing page content. Expects isArabic; uses pricingPlans from pricing-data.
+- if (typeof isArabic === 'undefined') isArabic = false
+
+//- Arabic copy for plans (same order/structure as pricing-data: Basic, Pro, Enterprise)
+- var pricingPlansAr = [{ title: 'الباقة الأساسية', price: 29, features: ['5 مشاريع', '10 جيجا تخزين', 'دعم أساسي', 'وصول للمجتمع', 'مراجعة كود أساسية'], buttonText: 'ابدأ الآن', mostPopular: false }, { title: 'باقة المحترفين', price: 79, features: ['50 مشروعاً', '100 جيجا تخزين', 'دعم أولوية', 'تعاون الفريق', 'تحليلات متقدمة', 'مراجعة كود مميزة'], buttonText: 'ترقية الآن', mostPopular: true }, { title: 'باقة المؤسسات', price: 149, features: ['مشاريع غير محدودة', '1 تيرابايت تخزين', 'دعم مخصص 24/7', 'تكاملات مخصصة', 'ضمان SLA'], buttonText: 'اتصل بالمبيعات', mostPopular: false }]
+- var plansToShow = isArabic ? pricingPlansAr : pricingPlans
+
+section(class="bg-page dark:bg-gray-900 py-16 md:py-20")
+  div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+    p(class="text-center uppercase font-medium text-primary")= isArabic ? 'الأسعار' : 'PRICING'
+    h3(class="text-3xl font-semibold text-center mx-auto mt-2 text-secondary dark:text-gray-100")= isArabic ? 'خطط الأسعار' : 'Our Pricing Plans'
+    p(class="text-sm text-slate-500 dark:text-gray-400 text-center mt-4 max-w-lg mx-auto")= isArabic ? 'خيارات أسعار مرنة مصممة لاحتياجاتك — سواء كنت قد بدأت للتو أو تتوسع.' : "Flexible pricing options designed to meet your needs — whether you're just getting started or scaling up."
+
+    div(id="pricing" class="flex flex-wrap items-center justify-center gap-6 mt-16 w-full")
+      each plan in plansToShow
+        div(class="p-6 rounded-2xl max-w-80 w-full shadow-[0px_4px_26px] shadow-black/5 dark:shadow-none " + (plan.mostPopular ? 'relative pt-12 bg-gradient-to-b from-primary to-secondary text-white dark:from-primary dark:to-secondary' : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700'))
+          if plan.mostPopular
+            div(class="flex items-center text-xs gap-1.5 py-1.5 px-2.5 text-primary absolute top-4 right-4 rounded bg-white dark:bg-gray-100 font-medium")
+              span(class="fa fa-star" aria-hidden="true")
+              span= isArabic ? 'الأكثر شعبية' : 'Most Popular'
+          p(class="font-medium " + (plan.mostPopular ? 'text-white' : 'text-secondary dark:text-gray-100'))= plan.title
+          h4(class="text-3xl font-semibold mt-1 " + (plan.mostPopular ? 'text-white' : 'text-secondary dark:text-gray-100'))
+            | $#{plan.price}
+            span(class="font-normal text-sm " + (plan.mostPopular ? 'text-white/90' : 'text-slate-500 dark:text-gray-400'))= isArabic ? ' /شهر' : ' /mo'
+          hr(class="my-8 " + (plan.mostPopular ? 'border-white/30' : 'border-slate-200 dark:border-gray-600'))
+          ul(class="space-y-2 " + (plan.mostPopular ? 'text-white' : 'text-slate-600 dark:text-gray-300') role="list")
+            each feature in plan.features
+              li(class="flex items-center gap-2")
+                span(class=(plan.mostPopular ? 'fa fa-check text-white' : 'fa fa-check text-primary') aria-hidden="true")
+                span= feature
+          a(href=isArabic ? 'login-ar.html' : 'login.html' class="block w-full py-3 rounded-lg font-medium mt-8 text-center no-underline transition " + (plan.mostPopular ? 'bg-white hover:bg-gray-100 text-secondary' : 'bg-primary hover:bg-secondary text-white'))= plan.buttonText

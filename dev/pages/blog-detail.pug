@@ -1,0 +1,19 @@
+extends ../layouts/layout
+
+block vars
+  - var isArabic = false
+  - var langSwitchBase = 'blog-detail'
+
+block head
+  title Blog | Trufla
+  style.
+    #blog-content p { margin-bottom: 1rem; }
+    #blog-content h3 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: inherit; }
+
+block pageHeaderData(pageData)
+  - pageData.title = isArabic ? 'المدونة' : 'Blog'
+  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: 'index.html' }, { label: 'المدونة', url: 'blogs-ar.html' }, { label: 'المقال', url: null }] : [{ label: 'Home', url: 'index.html' }, { label: 'Blogs', url: 'blogs.html' }, { label: 'Post', url: null }]
+
+block content
+  include ../data/blogs-data
+  include ../partials/blog-detail-content
