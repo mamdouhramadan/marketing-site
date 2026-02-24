@@ -1,14 +1,29 @@
-# Trufla Task
+# Trufla Site
 
 A **mobile-first**, **bilingual (English / Arabic)** static marketing site for Trufla — insurance templates and claims support. Built with Pug, Gulp, Tailwind CSS, and vanilla JavaScript. Includes RTL support, dark mode, PWA setup, and accessibility features.
 
-**[View Demo](https://mamdouhramadan.github.io/trufla-task/dist/)** · Demo is served from the `dist/` build.
+**[View Demo](https://mamdouhramadan.github.io/marketing-site/)** · Hosted on GitHub Pages (built and deployed via GitHub Actions).
 
 ### Screenshots
 
 | Light mode | Dark mode |
 |------------|-----------|
 | ![Home — Light mode](screenshots/home-light.png) | ![Home — Dark mode](screenshots/home-dark.png) |
+
+---
+
+## Deploy to GitHub Pages
+
+The site is built and deployed automatically with **GitHub Actions**. Follow these steps once in your GitHub repo.
+
+**1. Enable GitHub Pages (one-time setup)**  
+Go to your repo on GitHub → **Settings** → **Pages**. Under **Build and deployment**, set **Source** to **GitHub Actions**. Save. You do not need to create a `gh-pages` branch; the workflow deploys the built site.
+
+**2. What the workflow does**  
+On every push to `main` (or when you run it manually from the **Actions** tab), the workflow: checkouts the repo → runs `npm ci` and `npm run build` → uploads the `dist/` folder as a GitHub Pages artifact → deploys it. The site will be at **`https://<your-username>.github.io/marketing-site/`**.
+
+**3. Manual deploy**  
+Go to **Actions** → **Deploy to GitHub Pages** → **Run workflow** → **Run workflow**.
 
 ---
 
@@ -42,7 +57,7 @@ A **mobile-first**, **bilingual (English / Arabic)** static marketing site for T
 ## Project structure
 
 ```
-trufla-task/
+marketing-site/
 ├── dev/                        # Source (edit these)
 │   ├── pages/                  # One .pug per page (EN + AR pairs)
 │   │   ├── index.pug, index-ar.pug
