@@ -13,8 +13,8 @@ meta( name="author" content="Mamdouh Ramadan")
 meta(name="theme-color" content="#42415b")
 // Meta - Viewport
 meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-// Google Font - Poppins, Roboto, Almarai (Arabic)
-link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;700&family=Almarai:wght@300;400;700;800&display=swap')
+// Google Font - Poppins, Roboto, Almarai, Open Sans (for body/paragraph text)
+link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;700&family=Almarai:wght@300;400;700;800&family=Open+Sans:wght@400;600&display=swap')
 // Font Awesome 4.7 from CDN (icons only; no local font files)
 link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' crossorigin='anonymous')
 // Main Libraries CSS (normalize only; Font Awesome loaded above)
@@ -24,8 +24,8 @@ link(rel='stylesheet' href='css/main.css')
 // Tailwind CSS (load after main so utilities can override if needed)
 link(rel='stylesheet' href='css/tailwind.css')
 
-// Adding FavIcon
-link(href="favicon.ico" rel="icon" type="image/x-icon")
+// Favicon: use PWA icon to avoid 404 on GitHub Pages (no favicon.ico in repo)
+link(rel="icon" href="images/android-chrome-192x192.png" type="image/png" sizes="192x192")
 // PWA Manifest File
 link(rel="manifest" href="./manifest.json")
 

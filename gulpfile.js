@@ -33,10 +33,10 @@ gulp.task('html', function () {
 });
 
 // =======================
-// Start Css Task
+// Start Css Task (single entry: main.scss; imports resolve _style → _theme)
 // =======================
 gulp.task('css', function () {
-    return gulp.src(['dev/scss/**/*.css', 'dev/scss/*.scss'])
+    return gulp.src('dev/scss/main.scss')
         .pipe(sourcemap.init())
         .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(autoprefixer())
