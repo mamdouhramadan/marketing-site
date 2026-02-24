@@ -4,6 +4,12 @@ A **mobile-first**, **bilingual (English / Arabic)** static marketing site for T
 
 **[View Demo](https://mamdouhramadan.github.io/trufla-task/dist/)** · Demo is served from the `dist/` build.
 
+### Screenshots
+
+| Light mode | Dark mode |
+|------------|-----------|
+| ![Home — Light mode](screenshots/home-light.png) | ![Home — Dark mode](screenshots/home-dark.png) |
+
 ---
 
 ## What’s in the project
