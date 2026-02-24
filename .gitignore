@@ -86,6 +86,12 @@ dist/
 dist/**
 dist/*
 
+# Editor / tooling
+.vscode/
+
+# SpecStory
+.specstory/
+
 # Ignore all markdown files except README
 *.md
 !README.md
