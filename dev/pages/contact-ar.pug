@@ -9,7 +9,7 @@ block head
 
 block pageHeaderData(pageData)
   - pageData.title = contactPageTitle
-  - pageData.breadcrumbs = [{ label: contactBreadcrumbHome, url: 'index.html' }, { label: contactBreadcrumbContact, url: null }]
+  - pageData.breadcrumbs = [{ label: contactBreadcrumbHome, url: homeUrl }, { label: contactBreadcrumbContact, url: null }]
 
 block content
   include ../partials/contact-content

@@ -51,7 +51,7 @@ gulp.task('css', function () {
 // Start Libraries and Framework Task
 // ====================================
 gulp.task('libs', function () {
-    return gulp.src(['dev/libs/reset.min.css', 'dev/libs/normalize.css', 'dev/libs/font-awesome.css'])
+    return gulp.src(['dev/libs/normalize.css', 'dev/libs/font-awesome.css'])
         .pipe(sourcemap.init())
         .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(autoprefixer())
@@ -66,7 +66,14 @@ gulp.task('libs', function () {
 // Start Js Task
 // ======================
 gulp.task('js', function () {
-    return gulp.src(['dev/js/jquery-3.6.0.min.js' , 'dev/js/*.js'])
+    return gulp.src([
+        'dev/js/main.js',
+        'dev/js/theme-toggle.js',
+        'dev/js/cookie-consent.js',
+        'dev/js/accordion.js',
+        'dev/js/blog-list.js',
+        'dev/js/blog-detail.js'
+    ])
         .pipe(concat('main.js'))
         .pipe(minify())
         .pipe(gulp.dest('dist/js'))
@@ -107,7 +114,7 @@ gulp.task('sw', function () {
 gulp.task('tailwind', function () {
     return gulp.src('dev/css/tailwind.css')
         .pipe(sourcemap.init())
-        .pipe(postcss([tailwindcss(path.join(__dirname, 'tailwind.config.js')), require('autoprefixer')]))
+        .pipe(postcss([tailwindcss(path.join(__dirname, 'tailwind.config.js')), require('autoprefixer'), require('cssnano')({ preset: 'default' })]))
         .pipe(sourcemap.write('.'))
         .pipe(gulp.dest('dist/css'))
         .pipe(notify("Tailwind Done!"))
@@ -117,21 +124,22 @@ gulp.task('tailwind', function () {
 // ======================
 // Default and build tasks
 // ======================
-gulp.task('build', ['html', 'css', 'libs', 'tailwind', 'js', 'img', 'manifest', 'sw']);
-gulp.task('default', ['build']);
+gulp.task('build', gulp.parallel('html', 'css', 'libs', 'tailwind', 'js', 'img', 'manifest', 'sw'));
+gulp.task('default', gulp.series('build'));
 
 //=========================
 //    Start Watch Task
 //=========================
-gulp.task('watch', function () {
+gulp.task('watch', function (done) {
     require('./server.js');
     livereload.listen();
-    gulp.watch(['dev/pages/**/*.pug', 'dev/pages/*.pug', 'dev/layouts/**/*.pug', 'dev/components/**/*.pug'], ['html']);
-    gulp.watch(['dev/scss/**/*.css', 'dev/scss/**/*.scss'], ['css']);
-    gulp.watch(['dev/libs/**/*.css', 'dev/libs/**/*.scss'], ['libs']);
-    gulp.watch('dev/js/*.js', ['js']);
-    gulp.watch(['dev/images/*'], ['img']);
-    gulp.watch('dev/manifest.json', ['manifest']);
-    gulp.watch('dev/sw.js', ['sw']);
-    gulp.watch(['dev/css/tailwind.css', 'tailwind.config.js', 'dev/**/*.pug', 'dist/**/*.html'], ['tailwind']);
-})
+    gulp.watch(['dev/pages/**/*.pug', 'dev/pages/*.pug', 'dev/layouts/**/*.pug', 'dev/components/**/*.pug', 'dev/partials/**/*.pug', 'dev/data/**/*.pug'], gulp.series('html'));
+    gulp.watch(['dev/scss/**/*.css', 'dev/scss/**/*.scss'], gulp.series('css'));
+    gulp.watch(['dev/libs/**/*.css', 'dev/libs/**/*.scss'], gulp.series('libs'));
+    gulp.watch('dev/js/*.js', gulp.series('js'));
+    gulp.watch(['dev/images/*'], gulp.series('img'));
+    gulp.watch('dev/manifest.json', gulp.series('manifest'));
+    gulp.watch('dev/sw.js', gulp.series('sw'));
+    gulp.watch(['dev/css/tailwind.css', 'tailwind.config.js', 'dev/**/*.pug', 'dist/**/*.html'], gulp.series('tailwind'));
+    done();
+});

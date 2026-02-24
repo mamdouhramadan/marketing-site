@@ -1,25 +1,34 @@
+block vars
+-
+  if (typeof isArabic === 'undefined') isArabic = false
+  if (typeof langSwitchBase === 'undefined') langSwitchBase = ''
+  var pageDescriptions = { index: { en: 'Trufla delivers insurance templates and claims support that scale with your business. Get a quote today.', ar: 'ترافلا تقدم قوالب تأمين ودعم مطالبات تتوسع مع عملك. احصل على عرض سعر اليوم.' }, about: { en: 'Learn about Trufla — our team, our apps, and how we help insurance teams with templates and workflows.', ar: 'تعرف على ترافلا — فريقنا وتطبيقاتنا وكيف نساعد فرق التأمين بقوالب وسير عمل.' }, blogs: { en: 'Read the latest on insurance templates, claims best practices, and payment workflows from Trufla.', ar: 'اقرأ آخر المقالات عن قوالب التأمين وأفضل ممارسات المطالبات وسير عمل المدفوعات من ترافلا.' }, 'blog-detail': { en: 'Trufla blog — insurance templates and claims support.', ar: 'مدونة ترافلا — قوالب التأمين ودعم المطالبات.' }, contact: { en: 'Contact Trufla for insurance templates, claims support, and pricing. We\'d love to hear from you.', ar: 'اتصل بترافلا للحصول على قوالب التأمين ودعم المطالبات والأسعار. نود أن نسمع منكم.' }, pricing: { en: 'Flexible pricing plans for Trufla — insurance templates and claims support for teams of any size.', ar: 'خطط أسعار مرنة من ترافلا — قوالب تأمين ودعم مطالبات للفرق بأي حجم.' }, login: { en: 'Sign in to your Trufla account.', ar: 'تسجيل الدخول إلى حسابك في ترافلا.' }, '404': { en: 'Page not found. Return to Trufla home.', ar: 'الصفحة غير موجودة. العودة إلى ترافلا.' } }
+  var pageKeywordsMap = { index: { en: 'insurance, templates, claims, payments, Trufla, quote', ar: 'تأمين، قوالب، مطالبات، مدفوعات، ترافلا، عرض سعر' }, about: { en: 'Trufla, about, team, insurance templates', ar: 'ترافلا، من نحن، فريق، قوالب تأمين' }, blogs: { en: 'Trufla blog, insurance templates, claims, payments', ar: 'مدونة ترافلا، قوالب تأمين، مطالبات، مدفوعات' }, contact: { en: 'contact Trufla, support, insurance', ar: 'اتصل ترافلا، دعم، تأمين' }, pricing: { en: 'pricing, plans, Trufla, insurance', ar: 'أسعار، خطط، ترافلا، تأمين' }, login: { en: 'login, sign in, Trufla', ar: 'تسجيل دخول، ترافلا' }, '404': { en: '404, not found', ar: '404، غير موجود' } }
+  var pageDescription = (pageDescriptions[langSwitchBase] && pageDescriptions[langSwitchBase][isArabic ? 'ar' : 'en']) || (isArabic ? 'ترافلا — قوالب التأمين ودعم المطالبات.' : 'Trufla — insurance templates and claims support.')
+  var pageKeywords = (pageKeywordsMap[langSwitchBase] && pageKeywordsMap[langSwitchBase][isArabic ? 'ar' : 'en']) || (isArabic ? 'تأمين، قوالب، مطالبات، ترافلا' : 'insurance, templates, claims, payments, Trufla')
+  var siteBaseUrl = 'https://trufla.example.com/'
+  var canonicalPath = langSwitchBase ? (isArabic ? langSwitchBase + '-ar.html' : langSwitchBase + '.html') : (isArabic ? 'index-ar.html' : 'index.html')
+  var canonicalUrl = siteBaseUrl + canonicalPath
+  var pageTitles = { index: { en: 'Trufla | Home', ar: 'ترافلا | الرئيسية' }, about: { en: 'About | Trufla', ar: 'من نحن | ترافلا' }, blogs: { en: 'Blogs | Trufla', ar: 'المدونة | ترافلا' }, 'blog-detail': { en: 'Blog | Trufla', ar: 'المقال | ترافلا' }, contact: { en: 'Contact | Trufla', ar: 'اتصل بنا | ترافلا' }, pricing: { en: 'Pricing | Trufla', ar: 'الأسعار | ترافلا' }, login: { en: 'Sign in | Trufla', ar: 'تسجيل الدخول | ترافلا' }, '404': { en: 'Page Not Found | Trufla', ar: 'الصفحة غير موجودة | ترافلا' } }
+  var pageTitle = (pageTitles[langSwitchBase] && pageTitles[langSwitchBase][isArabic ? 'ar' : 'en']) || (isArabic ? 'ترافلا' : 'Trufla')
+  var ogImageUrl = siteBaseUrl + 'images/og-image.png'
 doctype html
-html(lang='en')
+html(lang=isArabic ? 'ar' : 'en' dir=isArabic ? 'rtl' : 'ltr')
   head
     include ../components/head
     block head
       title Trufla Task
   body(class="bg-page dark:bg-gray-900")
-    block vars
-    -
-      if (typeof isArabic === 'undefined') isArabic = false
-      if (typeof langSwitchBase === 'undefined') langSwitchBase = ''
     include ../components/variables
-    div(dir=isArabic ? 'rtl' : 'ltr' lang=isArabic ? 'ar' : 'en')
-      a.skip-link(href="#main-content")= skipToContentLabel
-      include ../components/navbar
-      - var pageData = { title: '', breadcrumbs: [] }
-      block pageHeaderData(pageData)
-      if !isHomePage
-        include ../components/page-header
-        +pageHeader(pageData.title, pageData.breadcrumbs)
-      main.page#main-content(role="main")
-        block content
-      include ../components/footer
-      include ../components/cookies
-      include ../components/scripts
+    a.skip-link(href="#main-content")= skipToContentLabel
+    include ../components/navbar
+    - var pageData = { title: '', breadcrumbs: [] }
+    block pageHeaderData(pageData)
+    if !isHomePage
+      include ../components/page-header
+      +pageHeader(pageData.title, pageData.breadcrumbs)
+    main.page#main-content(role="main")
+      block content
+    include ../components/footer
+    include ../components/cookies
+    include ../components/scripts

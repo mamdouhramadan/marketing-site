@@ -24,79 +24,105 @@ section(class="font-['Poppins',sans-serif] relative bg-hero bg-cover bg-center b
 //- 2. About our apps
 section(class="bg-page dark:bg-gray-900 py-16 md:py-20")
   div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center")
-    div(class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-0")
-      img(class="max-w-sm w-full rounded-xl h-auto object-cover" src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&w=830&h=844&auto=format&fit=crop" alt=isArabic ? 'قوالب Trufla وسير العمل' : 'Trufla templates and workflows')
-      div(class="text-left")
-        h3(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= isArabic ? 'أحدث ميزاتنا' : 'Our Latest features'
-        p(class="text-secondary/80 dark:text-gray-300 text-lg leading-[34px] font-['Open_Sans',sans-serif]")= isArabic ? 'قدّم قوالب واضحة ومتوافقة بدون تعقيد — مستندات قابلة للتخصيص وقابلة للتوسع وملائمة للفرق للمدفوعات والمطالبات.' : 'Ship clear, compliant templates without the overhead — customizable, scalable and team-friendly documents for payments and claims.'
-        div(class="flex flex-col gap-10 mt-6")
-          div(class="flex items-center gap-4")
-            div(class="size-9 p-2 bg-primary/10 border border-primary/30 dark:border-primary/40 rounded flex items-center justify-center shrink-0")
-              img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png" alt="")
-            div
-              h4(class="text-base font-medium text-secondary dark:text-gray-100")= isArabic ? 'أداء فائق السرعة' : 'Lightning-Fast Performance'
-              p(class="text-sm text-secondary/70 dark:text-gray-400")= isArabic ? 'مبني على السرعة — أوقات تحميل قصيرة وتسليم محسّن.' : 'Built with speed — minimal load times and optimized delivery.'
-          div(class="flex items-center gap-4")
-            div(class="size-9 p-2 bg-primary/10 border border-primary/30 dark:border-primary/40 rounded flex items-center justify-center shrink-0")
-              img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png" alt="")
-            div
-              h4(class="text-base font-medium text-secondary dark:text-gray-100")= isArabic ? 'مكونات مصممة بدقة' : 'Beautifully Designed Components'
-              p(class="text-sm text-secondary/70 dark:text-gray-400")= isArabic ? 'قوالب حديثة وواضحة جاهزة لأي سير عمل تأمين أو مطالبات.' : 'Modern, clear templates ready for any insurance or claims workflow.'
-          div(class="flex items-center gap-4")
-            div(class="size-9 p-2 bg-primary/10 border border-primary/30 dark:border-primary/40 rounded flex items-center justify-center shrink-0")
-              img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png" alt="")
-            div
-              h4(class="text-base font-medium text-secondary dark:text-gray-100")= isArabic ? 'تكامل جاهز للاستخدام' : 'Plug-and-Play Integration'
-              p(class="text-sm text-secondary/70 dark:text-gray-400")= isArabic ? 'إعداد بسيط — استخدم كما هو أو خصص ليتوافق مع علامتك وعمليتك.' : 'Simple setup — use as-is or customize to match your brand and process.'
+    div(class="mx-auto flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-20 px-4 md:px-0")
+      .flex-1
+        img(class="max-w-sm w-full rounded-xl h-auto object-cover" src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&w=830&h=844&auto=format&fit=crop" alt=isArabic ? 'قوالب Trufla وسير العمل' : 'Trufla templates and workflows' loading="lazy")
+      .flex-1
+        div(class="text-start flex-1")
+          h3(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= isArabic ? 'أحدث ميزاتنا' : 'Our Latest features'
+          p(class="text-secondary/80 dark:text-gray-300 text-lg leading-[34px] font-['Open_Sans',sans-serif]")= isArabic ? 'قدّم قوالب واضحة ومتوافقة بدون تعقيد — مستندات قابلة للتخصيص وقابلة للتوسع وملائمة للفرق للمدفوعات والمطالبات.' : 'Ship clear, compliant templates without the overhead — customizable, scalable and team-friendly documents for payments and claims.'
+          div(class="flex flex-col gap-10 mt-6")
+            div(class="flex items-center gap-4")
+              div(class="size-9 p-2 bg-primary/10 border border-primary/30 dark:border-primary/40 rounded flex items-center justify-center shrink-0")
+                img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png" alt="" loading="lazy")
+              div
+                h4(class="text-base font-medium text-secondary dark:text-gray-100")= isArabic ? 'أداء فائق السرعة' : 'Lightning-Fast Performance'
+                p(class="text-sm text-secondary/70 dark:text-gray-400")= isArabic ? 'مبني على السرعة — أوقات تحميل قصيرة وتسليم محسّن.' : 'Built with speed — minimal load times and optimized delivery.'
+            div(class="flex items-center gap-4")
+              div(class="size-9 p-2 bg-primary/10 border border-primary/30 dark:border-primary/40 rounded flex items-center justify-center shrink-0")
+                img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png" alt="" loading="lazy")
+              div
+                h4(class="text-base font-medium text-secondary dark:text-gray-100")= isArabic ? 'مكونات مصممة بدقة' : 'Beautifully Designed Components'
+                p(class="text-sm text-secondary/70 dark:text-gray-400")= isArabic ? 'قوالب حديثة وواضحة جاهزة لأي سير عمل تأمين أو مطالبات.' : 'Modern, clear templates ready for any insurance or claims workflow.'
+            div(class="flex items-center gap-4")
+              div(class="size-9 p-2 bg-primary/10 border border-primary/30 dark:border-primary/40 rounded flex items-center justify-center shrink-0")
+                img(class="w-full h-full object-contain" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png" alt="" loading="lazy")
+              div
+                h4(class="text-base font-medium text-secondary dark:text-gray-100")= isArabic ? 'تكامل جاهز للاستخدام' : 'Plug-and-Play Integration'
+                p(class="text-sm text-secondary/70 dark:text-gray-400")= isArabic ? 'إعداد بسيط — استخدم كما هو أو خصص ليتوافق مع علامتك وعمليتك.' : 'Simple setup — use as-is or customize to match your brand and process.'
+
+//- 3. Features (Trufla templates & workflows)
+- var featuresList = isArabic ? [{ title: 'أتمتة المطالبات', desc: 'دع القوالب والعمليات تنهي المهام المتكررة حتى يركز فريقك على نمو الأعمال.' }, { title: 'تتبع المطالبات في الوقت الفعلي', desc: 'تتبع حالة المطالبات والمواعيد النهائية بسهولة مع سير عمل واضح ومنظم.' }, { title: 'الامتثال والوعي السياقي', desc: 'ابق متوافقاً مع القوالب المصممة للمطالبات والمدفوعات والامتثال.' }, { title: 'تحسين الموارد', desc: 'وظّف وقت فريقك بشكل أفضل بأتمتة المستندات والمطالبات المتكررة.' }, { title: 'صلاحيات حسب الدور', desc: 'تحكم في من يصل إلى القوالب وسير العمل لضمان الأمان والاتساق.' }, { title: 'التعاون في القوالب وسير العمل', desc: 'اعمل مع الفريق على نفس القوالب وسير المطالبات والمدفوعات بسلاسة.' }] : [{ title: 'Claims Automation', desc: 'Let templates and workflows handle repetitive tasks so your team can focus on business growth.' }, { title: 'Real-Time Claims Tracking', desc: 'Track claim status and deadlines easily with clear, organized workflows and visibility.' }, { title: 'Compliance Awareness', desc: 'Stay compliant with templates designed for claims, payments, and regulatory requirements.' }, { title: 'Resource Optimization', desc: 'Use your team\'s time better by automating repetitive documents and claim handling.' }, { title: 'Role-Based Access', desc: 'Control who can access which templates and workflows for security and consistency.' }, { title: 'Template & Workflow Collaboration', desc: 'Work together on the same templates and claims or payment workflows seamlessly.' }]
+section(class="bg-page dark:bg-gray-900 py-16 md:py-20 px-4")
+  div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+    div(class="text-center mb-12")
+      h2(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= isArabic ? 'أبرز الميزات' : 'Key Features'
+      p(class="text-secondary/80 dark:text-gray-300 text-sm max-w-xl mx-auto leading-relaxed")= isArabic ? 'بسّط العمليات وزد الإنتاجية بقوالب وسير عمل واضحة للمطالبات والمدفوعات.' : 'Streamline operations and boost productivity with clear templates and workflows for claims and payments.'
+    div(class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto")
+      each feat, idx in featuresList
+        div(class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 space-y-3 hover:-translate-y-1 transition duration-300")
+          if idx === 0
+            svg(class="text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true")
+              path(d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z")
+              path(d="m9 12 2 2 4-4")
+          else if idx === 1
+            svg(class="text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true")
+              path(d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8")
+              path(d="M3 3v5h5")
+              path(d="M12 7v5l4 2")
+          else if idx === 2
+            svg(class="text-primary shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true")
+              path(d="M21 7.9999C20.9996 7.64918 20.9071 7.30471 20.7315 7.00106C20.556 6.69742 20.3037 6.44526 20 6.2699L13 2.2699C12.696 2.09437 12.3511 2.00195 12 2.00195C11.6489 2.00195 11.304 2.09437 11 2.2699L4 6.2699C3.69626 6.44526 3.44398 6.69742 3.26846 7.00106C3.09294 7.30471 3.00036 7.64918 3 7.9999V15.9999C3.00036 16.3506 3.09294 16.6951 3.26846 16.9987C3.44398 17.3024 3.69626 17.5545 4 17.7299L11 21.7299C11.304 21.9054 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9054 13 21.7299L20 17.7299C20.3037 17.5545 20.556 17.3024 20.7315 16.9987C20.9071 16.6951 20.9996 16.3506 21 15.9999V7.9999Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+              path(d="M3.29999 7L12 12L20.7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+              path(d="M12 22V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+          else if idx === 3
+            svg(class="text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true")
+              ellipse(cx="12" cy="5" rx="9" ry="3")
+              path(d="M3 5V19A9 3 0 0 0 21 19V5")
+              path(d="M3 12A9 3 0 0 0 21 12")
+          else if idx === 4
+            svg(class="text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true")
+              path(d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2")
+              path(d="M16 3.128a4 4 0 0 1 0 7.744")
+              path(d="M22 21v-2a4 4 0 0 0-3-3.87")
+              circle(cx="9" cy="7" r="4")
+          else
+            svg(class="text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true")
+              path(d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1")
+              path(d="m12 15 5 6H7Z")
+          p(class="font-medium text-lg text-secondary dark:text-gray-100")= feat.title
+          p(class="text-sm leading-snug text-secondary/70 dark:text-gray-400")= feat.desc
 
 //- 4. Team
-section#team(class="bg-page dark:bg-gray-900 py-16 md:py-20")
-  div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center")
-    h2(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= isArabic ? 'فريقنا' : 'Our Team'
-    p(class="w-[90%] max-w-xl mx-auto mb-10 text-sm text-black/50 dark:text-gray-400 leading-relaxed md:w-3/5")= isArabic ? 'تعرف على الأشخاص وراء Trufla. نركز على عمليات واضحة ودعم سريع وقوالب تساعدك على التعامل مع المدفوعات والمطالبات بثقة.' : 'Meet the people behind Trufla. We focus on clear processes, fast support, and templates that help you handle payments and claims with confidence.'
-    div(class="flex flex-nowrap overflow-x-auto gap-4 lg:grid lg:grid-cols-3 lg:overflow-visible pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory items-stretch")
-      each member in [{ img: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200', alt: 'Sarah Chen', name: 'Sarah Chen', role: 'Head of Claims', roleAr: 'رئيسة المطالبات', bio: 'Leads claims operations and customer support. Former claims manager with over 10 years in insurance.', bioAr: 'تقود عمليات المطالبات ودعم العملاء. مديرة مطالبات سابقة بأكثر من 10 سنوات في التأمين.', phone: '+1 (416) 555-0142', email: 'sarah.chen@trufla.example.com' }, { img: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200', alt: 'James Mitchell', name: 'James Mitchell', role: 'Customer Success Lead', roleAr: 'قائد نجاح العملاء', bio: 'Helps teams adopt our templates and workflows. Focused on onboarding and training.', bioAr: 'يساعد الفرق على اعتماد قوالبنا وسير العمل. يركز على الانضمام والتدريب.', phone: '+1 (416) 555-0143', email: 'james.mitchell@trufla.example.com' }, { img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&h=200&auto=format&fit=crop', alt: 'Priya Sharma', name: 'Priya Sharma', role: 'Product & Operations', roleAr: 'المنتج والعمليات', bio: 'Owns product design and operations. Ensures our templates stay up to date with regulations.', bioAr: 'تشرف على تصميم المنتج والعمليات. تضمن بقاء قوالبنا محدثة وفق اللوائح.', phone: '+1 (416) 555-0144', email: 'priya.sharma@trufla.example.com' }]
-        div(class="group shrink-0 min-w-[57.14%] lg:min-w-0 snap-center snap-always lg:snap-align-none flex flex-col items-center text-center p-8 md:p-6 bg-white dark:bg-gray-800 border border-black/10 dark:border-gray-700 rounded-md cursor-pointer transition-colors hover:border-secondary hover:bg-secondary")
-          img(class="w-24 h-24 rounded-full object-cover block" src=member.img alt=member.alt width="96" height="96")
-          h3(class="text-2xl font-medium text-secondary dark:text-gray-100 mt-2 mb-0 transition-colors group-hover:text-white")= member.name
-          p(class="text-xl text-black/50 dark:text-gray-400 m-0 transition-colors group-hover:text-white/85")= isArabic ? member.roleAr : member.role
-          p(class="text-sm text-black/40 dark:text-gray-400 w-3/4 mt-4 mb-0 leading-snug transition-colors group-hover:text-white/75")= isArabic ? member.bioAr : member.bio
-          .team-card-social(class="flex items-center justify-center gap-4 mt-6 flex-wrap")
-            a(href="tel:" + member.phone.replace(/\s/g, '') aria-label="Phone" class="text-black/50 dark:text-gray-400 transition-colors hover:text-inherit focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
-              span(class="fa fa-phone" aria-hidden="true")
-            a(href="mailto:" + member.email aria-label="Email" class="text-black/50 dark:text-gray-400 transition-colors hover:text-inherit focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
-              span(class="fa fa-envelope" aria-hidden="true")
-            a(href="https://www.linkedin.com/" aria-label="LinkedIn" class="text-black/50 dark:text-gray-400 transition-colors hover:text-inherit focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
-              span(class="fa fa-linkedin" aria-hidden="true")
-            a(href="#" aria-label="Dribbble" class="text-black/50 dark:text-gray-400 transition-colors hover:text-inherit focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
-              span(class="fa fa-dribbble" aria-hidden="true")
-            a(href="#" aria-label="Twitter" class="text-black/50 dark:text-gray-400 transition-colors hover:text-inherit focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
-              span(class="fa fa-twitter" aria-hidden="true")
+include ../data/team-data
+include ../components/team-section
++teamSection(teamMembers, isArabic)
 
-//- 5. Testimonials (data translated in page; component title/intro use isArabic)
-- var testimonials = isArabic ? [{ quote: "واجهة نظيفة وسهلة الاستخدام. وفرت قوالب Trufla ساعات وحافظت على اتساق عملية المطالبات لدينا.", name: "Richard Nelson", role: "مدير المطالبات", image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200" }, { quote: "جودة القوالب ممتازة. توازن مثالي بين الوضوح والامتثال. أوصي به لأي فريق تأمين.", name: "Sophia Martinez", role: "قائدة العمليات", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200" }, { quote: "اعتمدنا Trufla في فريقنا. سير العمل أسرع ومستنداتنا متسقة. الدعم يستجيب بسرعة.", name: "Ethan Roberts", role: "مسؤول الامتثال", image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60" }, { quote: "قوالب نظيفة واحترافية يثق بها عملاؤنا. التحديثات واضحة والهيكل يسهل التدريب.", name: "Isabella Kim", role: "نجاح العملاء", image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60" }, { quote: "انتقلنا إلى Trufla العام الماضي. أخطاء أقل ومراسلات أقل وفريقنا يستمتع باستخدام القوالب.", name: "Liam Johnson", role: "رئيس المدفوعات", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&h=100&auto=format&fit=crop" }, { quote: "هيكل جيد وسهل التخصيص. يجعل التدقيق والتحديثات بسيطة. خيارنا الأول لمستندات المطالبات والمدفوعات.", name: "Ava Patel", role: "المؤسسة والرئيسة التنفيذية", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200" }] : [{ quote: "Super clean and easy to use. Trufla templates saved us hours and kept our claims process consistent.", name: "Richard Nelson", role: "Claims Manager", image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200" }, { quote: "The template quality is top-notch. Perfect balance between clarity and compliance. Highly recommend for any insurance team.", name: "Sophia Martinez", role: "Operations Lead", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200" }, { quote: "We adopted Trufla across our team. Our workflow is faster and our documents are consistent. Support is responsive.", name: "Ethan Roberts", role: "Compliance Officer", image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60" }, { quote: "Clean, professional templates that our clients trust. Updates are straightforward and the structure makes training easy.", name: "Isabella Kim", role: "Customer Success", image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60" }, { quote: "We switched to Trufla last year. Fewer errors, less back-and-forth, and our team actually enjoys using the templates.", name: "Liam Johnson", role: "Head of Payments", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&h=100&auto=format&fit=crop" }, { quote: "Well-structured and easy to customize. Makes audits and updates simple. Our go-to for claims and payment docs.", name: "Ava Patel", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200" }]
+//- 5. Testimonials
+include ../data/testimonials-data
+- var testimonials = testimonialsToShow
 include ../components/testimonials
 
 //- 6. Clients (marquee)
 section(class="bg-page dark:bg-gray-900 py-14 md:py-16 px-4")
-  div(class="bg-white dark:bg-gray-800 rounded-xl max-w-5xl mx-auto lg:p-8 p-4 text-center")
+  div(class="bg-white dark:bg-gray-800 rounded-xl max-w-7xl mx-auto lg:p-8 p-4 text-center")
     h2(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= isArabic ? 'عملاؤنا' : 'Our Clients'
     p(class="w-[90%] max-w-xl mx-auto mb-10 text-sm text-black/50 dark:text-gray-400 leading-relaxed md:w-3/5")= isArabic ? 'علامات ومنظمات تستخدم Trufla لتبسيط المدفوعات والمطالبات.' : 'Brands and organizations that use Trufla to streamline payments and claims.'
     div(class="overflow-hidden w-full relative  mx-auto select-none py-4 px-6")
-      div(class="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white dark:from-gray-900 to-transparent")
+      div(class="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white dark:from-gray-800 to-transparent")
       div(class="flex will-change-transform min-w-[200%] animate-marquee")
         div(class="flex")
           - var clientLogos = ['slack', 'framer', 'netflix', 'google', 'linkedin', 'instagram', 'facebook']
           each name in clientLogos.concat(clientLogos)
-            img(class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0 dark:brightness-0 dark:invert" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/" + name + ".svg" alt=name.charAt(0).toUpperCase() + name.slice(1) draggable="false")
-      div(class="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white dark:from-gray-900 to-transparent")
+            img(class="h-10 w-auto min-w-[80px] object-contain mx-6 flex-shrink-0 dark:brightness-0 dark:invert" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/companyLogo/" + name + ".svg" alt=name.charAt(0).toUpperCase() + name.slice(1) draggable="false" loading="lazy")
+      div(class="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white dark:from-gray-800 to-transparent")
 
-//- 7. FAQs (data with isArabic)
-- var faqs = isArabic ? [{ question: "ما هي أدوات الويب ولماذا هي مهمة؟", answer: "أدوات الويب تساعد في تبسيط سير العمل وأتمتة المهام وتحسين الإنتاجية. تمكن الفرق من بناء وإدارة وتوسيع المنتجات الرقمية بشكل أسرع وأكثر كفاءة." }, { question: "من يستفيد من استخدام أدوات الويب؟", answer: "تستفيد الشركات بجميع أحجامها، والمستقلون، والمطورون، والمصممون، ومسوقون وأي شخص يسعى لتحسين سير العمل والإنتاجية عبر الإنترنت." }, { question: "هل تتطلب أدوات الويب معرفة تقنية؟", answer: "معظم أدوات الويب الحديثة مصممة ليكون استخدامها سهلاً ولا تتطلب معرفة تقنية واسعة. العديد منها يوفر واجهات بديهية ودروس ودعم عملاء." }, { question: "هل يمكن لأدوات الويب التكامل مع المنصات الحالية؟", answer: "نعم، معظم أدوات الويب تقدم تكاملات مع منصات شائعة عبر واجهات برمجة التطبيقات والربط المباشر والتكاملات الأصلية لضمان سير عمل سلس." }, { question: "كيف أختار الأداة المناسبة لعملي؟", answer: "ضع في الاعتبار احتياجاتك وميزانيتك ومتطلبات التوسع وسهولة الاستخدام وقدرات التكامل ودعم العملاء. ابدأ بفترات تجريبية مجانية." }] : [{ question: "What are web tools and why do they matter?", answer: "Web tools help streamline workflows, automate tasks and improve productivity. They enable teams to build, manage and scale digital products faster and more efficiently. Anyone looking to optimize processes and work smarter online." }, { question: "Who can benefit from using web tools?", answer: "Web tools benefit businesses of all sizes, freelancers, developers, designers, marketers and anyone looking to improve their online workflow and productivity." }, { question: "Do web tools require technical knowledge?", answer: "Most modern web tools are designed to be user-friendly and don't require extensive technical knowledge. Many offer intuitive interfaces, tutorials and customer support to help users get started." }, { question: "Can web tools integrate with existing platforms?", answer: "Yes, most web tools offer integrations with popular platforms through APIs, webhooks and native integrations to ensure seamless workflow between different tools." }, { question: "How do I choose the right tool for business?", answer: "Consider your specific needs, budget, scalability requirements, ease of use, integration capabilities and customer support. Start with free trials to test functionality before committing." }]
+//- 7. FAQs
+include ../data/faq-data
 include ../components/accordion
 section#faqs(class="bg-page dark:bg-gray-900 flex items-center justify-center py-12 md:py-20 px-4")
   div(class="w-full max-w-3xl")
     div(class="text-center mb-12")
       p(class="text-sm font-medium tracking-wider text-secondary dark:text-gray-300 mb-2")= isArabic ? 'الأسئلة الشائعة' : "FAQ'S"
       h2(class="text-secondary dark:text-gray-100 font-bold text-section")= isArabic ? 'كل ما تحتاج معرفته' : 'Everything you need to know'
-    +accordion(faqs, 'faq-container')
+    +accordion(faqsToShow, 'faq-container')

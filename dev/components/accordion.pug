@@ -9,7 +9,7 @@ mixin accordion(items, containerId)
       div(class="accordion-item")
         div(class="bg-white dark:bg-gray-800 border border-zinc-200 dark:border-gray-700 rounded-lg overflow-hidden")
           button(
-            class="accordion-btn w-full flex items-center justify-between p-4 text-left hover:bg-zinc-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
+            class="accordion-btn w-full flex items-center justify-between p-4 text-start hover:bg-zinc-50 dark:hover:bg-gray-700/50 transition-colors cursor-pointer"
             type="button"
             aria-expanded="false"
             aria-controls=`${containerId}-panel-${index}`
@@ -27,45 +27,3 @@ mixin accordion(items, containerId)
         )
           div(class="px-5 py-4")
             p(class="text-sm font-light text-zinc-600 dark:text-gray-400 leading-relaxed")= item.answer
-
-  script.
-    (function() {
-      var container = document.getElementById('!{containerId}');
-      if (!container) return;
-
-      container.addEventListener('click', function(e) {
-        var btn = e.target.closest('.accordion-btn');
-        if (!btn) return;
-
-        var item = btn.closest('.accordion-item');
-        var panel = item.querySelector('.accordion-panel');
-        var iconPlus = btn.querySelector('.accordion-icon-plus');
-        var iconClose = btn.querySelector('.accordion-icon-close');
-        var isOpen = btn.getAttribute('aria-expanded') === 'true';
-
-        container.querySelectorAll('.accordion-item').forEach(function(other) {
-          if (other === item) return;
-          var otherBtn = other.querySelector('.accordion-btn');
-          var otherPanel = other.querySelector('.accordion-panel');
-          otherBtn.setAttribute('aria-expanded', 'false');
-          otherPanel.classList.add('max-h-0', 'opacity-0');
-          otherPanel.classList.remove('max-h-96', 'opacity-100');
-          other.querySelector('.accordion-icon-plus').classList.remove('hidden');
-          other.querySelector('.accordion-icon-close').classList.add('hidden');
-        });
-
-        if (isOpen) {
-          btn.setAttribute('aria-expanded', 'false');
-          panel.classList.add('max-h-0', 'opacity-0');
-          panel.classList.remove('max-h-96', 'opacity-100');
-          iconPlus.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        } else {
-          btn.setAttribute('aria-expanded', 'true');
-          panel.classList.remove('max-h-0', 'opacity-0');
-          panel.classList.add('max-h-96', 'opacity-100');
-          iconPlus.classList.add('hidden');
-          iconClose.classList.remove('hidden');
-        }
-      });
-    })();

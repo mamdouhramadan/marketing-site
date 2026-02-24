@@ -3,19 +3,19 @@
 section(class="bg-page dark:bg-gray-900 py-16 md:py-20")
   div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
     div(class="grid md:grid-cols-3 gap-8 md:gap-10")
-      div(class="text-center md:text-left")
+      div(class="text-center md:text-start")
         div(class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary")
           span(class="fa fa-envelope text-2xl" aria-hidden="true")
         p(class="text-lg font-bold mt-3 text-secondary dark:text-gray-100")= contactEmailTitle
         p(class="text-gray-500 dark:text-gray-400 mt-1 mb-4")= contactEmailDesc
         a(href="mailto:contact@trufla.example.com" class="text-primary font-semibold hover:text-secondary") contact@trufla.example.com
-      div(class="text-center md:text-left")
+      div(class="text-center md:text-start")
         div(class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary")
           span(class="fa fa-map-marker text-2xl" aria-hidden="true")
         p(class="text-lg font-bold mt-3 text-secondary dark:text-gray-100")= contactOfficeTitle
         p(class="text-gray-500 dark:text-gray-400 mt-1 mb-4")= contactOfficeDesc
         span(class="text-primary font-semibold")= contactOfficeAddress
-      div(class="text-center md:text-left")
+      div(class="text-center md:text-start")
         div(class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary")
           span(class="fa fa-phone text-2xl" aria-hidden="true")
         p(class="text-lg font-bold mt-3 text-secondary dark:text-gray-100")= contactPhoneTitle
@@ -23,7 +23,7 @@ section(class="bg-page dark:bg-gray-900 py-16 md:py-20")
         a(href="tel:+1234567789" class="text-primary font-semibold hover:text-secondary") (+1) 234 - 4567 - 789
 
 //- Contact form
-section(aria-label="Contact form" class="")
+section(aria-label="Contact form" class="py-16 md:py-20")
   div(class="max-w-7xl bg-white dark:bg-gray-800  rounded-xl mx-auto lg:p-12 p-6")
     div(class="max-w-3xl mx-auto")
       h2(class="text-secondary dark:text-gray-100 text-center font-bold text-section mb-section-title")= contactFormTitle

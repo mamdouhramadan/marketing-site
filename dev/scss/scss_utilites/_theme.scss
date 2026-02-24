@@ -3,20 +3,3 @@ $main-color: rgb(187, 137, 57);
 $secondry-color: #9ca2c6;
 $dark-color: #42415b;
 $light-color: #f7f7f7;
-
-@mixin btn {
-  min-width: 150px;
-  padding: 18px 44px;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 24px;
-  text-align: center;
-  background-color: $main-color;
-  border-color: $main-color;
-  &:hover {
-    background-color: $dark-color;
-    border-color: $dark-color;
-  }
-}

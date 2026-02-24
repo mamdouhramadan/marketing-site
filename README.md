@@ -1,19 +1,35 @@
 # Trufla Task
 
-Mobile-first, semantic HTML/SCSS/JS site for the Trufla developer task. Includes a PWA setup (manifest + service worker), multiple pages (Home, About, Contact), and accessibility improvements (skip link, focus styles, contrast).
+A **mobile-first**, **bilingual (English / Arabic)** static marketing site for Trufla — insurance templates and claims support. Built with Pug, Gulp, Tailwind CSS, and vanilla JavaScript. Includes RTL support, dark mode, PWA setup, and accessibility features.
 
-[**View Demo**](https://mamdouhramadan.github.io/trufla-task/dist/) · Demo runs from the `dist/` build.
+**[View Demo](https://mamdouhramadan.github.io/trufla-task/dist/)** · Demo is served from the `dist/` build.
 
 ---
 
-## Built with
+## What’s in the project
 
-- **Gulp** – task runner (HTML, CSS, JS, images, manifest, service worker)
-- **Pug** – HTML templates with a shared layout
-- **SCSS** – styles with variables and mixins
-- **Bootstrap 4** – layout and components (via libs)
-- **jQuery 3.6** – DOM and scroll behavior
-- **Static server** – dev server on port 6001
+- **Bilingual:** Every page has an English and an Arabic (RTL) version (e.g. `index.html` / `index-ar.html`).
+- **Tailwind CSS** for layout and utilities; **SCSS** for global styles (fonts, skip link, etc.).
+- **Pug** templates with a shared layout, components, and data files.
+- **Vanilla JS** (no jQuery): theme toggle, cookie consent, accordion, blog listing/detail, scroll-to-top.
+- **PWA:** manifest and service worker for offline and installability.
+- **Accessibility:** skip link, focus styles, semantic HTML, single h1 per page, RTL and reduced-motion support.
+
+---
+
+## Tech stack & tools
+
+| Tool | Purpose |
+|------|--------|
+| **Node.js** | Runtime |
+| **Gulp 4** | Task runner: HTML, CSS, JS, images, Tailwind, manifest, service worker |
+| **Pug** | HTML templating (layouts, pages, components, data) |
+| **Tailwind CSS v3** | Utility-first CSS (PostCSS + cssnano) |
+| **SCSS (Sass)** | Global styles, fonts (Roboto / Almarai for Arabic) |
+| **Vanilla JavaScript** | All interactivity (minified to `main-min.js`) |
+| **Express** | Dev server for `dist/` (port 6001) with live reload |
+
+**Fonts:** Poppins and Almarai (Google Fonts); Roboto via local files. Almarai is applied automatically on Arabic (RTL) pages.
 
 ---
 
@@ -21,28 +37,33 @@ Mobile-first, semantic HTML/SCSS/JS site for the Trufla developer task. Includes
 
 ```
 trufla-task/
-├── dev/                    # Source
-│   ├── html/
-│   │   ├── index.pug       # Home
-│   │   ├── about.pug       # About
-│   │   └── contact.pug     # Contact
+├── dev/                        # Source (edit these)
+│   ├── pages/                  # One .pug per page (EN + AR pairs)
+│   │   ├── index.pug, index-ar.pug
+│   │   ├── about.pug, about-ar.pug
+│   │   ├── blogs.pug, blogs-ar.pug
+│   │   ├── blog-detail.pug, blog-detail-ar.pug
+│   │   ├── contact.pug, contact-ar.pug
+│   │   ├── pricing.pug, pricing-ar.pug
+│   │   ├── login.pug, login-ar.pug
+│   │   └── 404.pug, 404-ar.pug
 │   ├── layouts/
-│   │   └── layout.pug      # Default layout (add more layouts here)
-│   ├── components/        # Reusable partials (head, navbar, footer, etc.)
-│   │   ├── head.pug
-│   │   ├── navbar.pug
-│   │   ├── footer.pug
-│   │   ├── scripts.pug
-│   │   └── variables.pug
-│   ├── scss/               # Styles
-│   ├── js/                 # Scripts (main.js + SW registration)
-│   ├── images/             # Images (add PWA icons here for installability)
-│   ├── libs/               # Bootstrap, normalize, etc.
-│   ├── manifest.json       # PWA manifest (scope, start_url, icons)
-│   └── sw.js               # Service worker (caches pages + assets)
-├── dist/                   # Build output (do not edit by hand)
-├── gulpfile.js
-├── server.js               # Serves dist/ on port 6001
+│   │   └── layout.pug           # Main layout (html lang/dir, head, body, footer)
+│   ├── components/             # Shared UI (navbar, footer, head, variables, etc.)
+│   ├── partials/                # Page-specific content (index-content, about-content, …)
+│   ├── data/                   # Pug data (blogs, team, testimonials, FAQ)
+│   ├── scss/                   # SCSS entry + utilities (main.scss → main.css)
+│   ├── css/
+│   │   └── tailwind.css        # Tailwind entry (processed by PostCSS)
+│   ├── js/                     # Concatenated and minified (main, theme-toggle, cookie-consent, …)
+│   ├── libs/                   # normalize.css, font-awesome
+│   ├── images/                 # Copied as-is to dist/images
+│   ├── manifest.json           # PWA manifest
+│   └── sw.js                   # Service worker
+├── dist/                       # Build output (do not edit by hand)
+├── tailwind.config.js          # Tailwind theme (colors, animations)
+├── gulpfile.js                 # Gulp tasks
+├── server.js                   # Serves dist/ on port 6001
 └── package.json
 ```
 
@@ -50,82 +71,111 @@ trufla-task/
 
 ## Prerequisites
 
-- **Node.js** (e.g. v16+; older may need different `gulp-sass`/node-sass)
-- **Gulp CLI** (optional but convenient): `npm install -g gulp-cli`
+- **Node.js** (v18+ recommended; v16+ may work)
+- **npm** (comes with Node)
+
+Optional: install Gulp CLI globally for `gulp` in the terminal:
+
+```bash
+npm install -g gulp-cli
+```
 
 ---
 
-## Commands
+## How to run the project
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Build the site
+
+Builds HTML, CSS (main, libs, Tailwind), JS, images, manifest, and service worker into `dist/`:
+
+```bash
+npm run build
+```
+
+Or:
+
+```bash
+gulp build
+```
+
+### 3. Development (watch + live reload)
+
+Starts the dev server, opens **http://localhost:6001**, and watches source files. Edits to Pug, SCSS, JS, etc. trigger a rebuild and browser refresh:
+
+```bash
+npm start
+```
+
+Or:
+
+```bash
+gulp watch
+```
+
+### 4. Production-style preview (no watch)
+
+If you only want to serve the built site without watch:
+
+```bash
+npm run build
+npm run serve
+```
+
+Then open **http://localhost:6001** (port is defined in `server.js`).
+
+---
+
+## NPM scripts summary
 
 | Command | Description |
-|--------|--------------|
+|--------|-------------|
 | `npm install` | Install dependencies |
-| `npm start` | Start dev server + watch (Gulp watch) → open **http://localhost:6001** |
-| `npm run build` | Full build (HTML, CSS, JS, images, manifest, service worker) |
-| `npm run serve` | Serve `dist/` only (run after `npm run build` for production preview) |
-
-Without npm scripts:
-
-- `gulp watch` – dev with live reload
-- `gulp build` or `gulp` – one-off build
+| `npm run build` | Full build → output in `dist/` |
+| `npm start` | Dev: build + watch + server + live reload (port 6001) |
+| `npm run serve` | Serve `dist/` only (run after `npm run build`) |
 
 ---
 
-## Pages
+## Pages and languages
 
-- **Home** (`index.html`) – hero, team section, content blocks
-- **About** (`about.html`) – short about and mission
-- **Contact** (`contact.html`) – contact form (name, email, message)
+Each “page” has two files: English (e.g. `index.pug`) and Arabic (e.g. `index-ar.pug`). They set `isArabic` and `langSwitchBase` in `block vars` and include the same content partials. The layout sets `html` `lang` and `dir` (e.g. `lang="ar" dir="rtl"`) and applies the Almarai font on Arabic pages.
 
-### Adding a new page
-
-1. Add a new file in `dev/html/`, e.g. `dev/html/services.pug`.
-2. Extend a layout and fill the content block:
-
-   ```pug
-   extends ../layouts/layout
-   block head
-     title Services | Trufla
-   block content
-     section
-       h1 Services
-       p Your content.
-   ```
-
-3. Add a nav entry in `dev/components/variables.pug` in the `navLinks` array, e.g. `{ label: 'Services', href: 'services.html' }`.
-4. Run `npm run build` (or `gulp build`). The new page will be in `dist/services.html`.
-
-To use a different layout later, add `dev/layouts/other.pug` and use `extends ../layouts/other` in your page.
+| English | Arabic | Route |
+|--------|--------|--------|
+| Home | الرئيسية | `index.html` / `index-ar.html` |
+| About | من نحن | `about.html` / `about-ar.html` |
+| Blogs | المدونة | `blogs.html` / `blogs-ar.html` |
+| Blog detail | المقال | `blog-detail.html` / `blog-detail-ar.html` |
+| Contact | اتصل بنا | `contact.html` / `contact-ar.html` |
+| Pricing | الأسعار | `pricing.html` / `pricing-ar.html` |
+| Login | تسجيل الدخول | `login.html` / `login-ar.html` |
+| 404 | الصفحة غير موجودة | `404.html` / `404-ar.html` |
 
 ---
 
 ## PWA
 
-The app is set up as a Progressive Web App:
-
-- **Manifest** – `dev/manifest.json` is copied to `dist/` on build. It defines `scope`, `start_url`, icons, theme and background colors, and `display: standalone`.
-- **Service worker** – `dev/sw.js` is copied to `dist/sw.js` and caches the main pages and assets for offline use.
-- **Icons** – The manifest expects `images/android-chrome-192x192.png` and `images/android-chrome-512x512.png`. Add these under `dev/images/` (they are copied to `dist/images/` by the `img` task) for installability.
-- **HTTPS** – Installing the PWA and using the service worker requires HTTPS (or `localhost`).
+- **Manifest:** `dev/manifest.json` is copied to `dist/`; defines scope, start URL, icons, theme.
+- **Service worker:** `dev/sw.js` is copied to `dist/sw.js` and caches pages and assets for offline use.
+- **Icons:** Expects `dev/images/android-chrome-192x192.png` and `android-chrome-512x512.png` (copied to `dist/images/`). Add these for installability.
+- **HTTPS:** PWA install and service worker need HTTPS (or `localhost`).
 
 ---
 
-## Accessibility and contrast
+## Accessibility and UX
 
-- **Semantic HTML** – `<main>`, `<header>`, `<footer>`, `<nav>`, one `h1` per page, logical heading order.
-- **Skip link** – “Skip to main content” at the top of the page (visible on keyboard focus).
-- **Focus styles** – Visible `:focus-visible` outlines on links, buttons, form controls, and the scroll-to-top button.
-- **Labels** – Contact form fields use `<label for="...">` and required attributes.
-- **Contrast** – Theme colors are chosen for readable text (e.g. dark on light). Hero section uses a subtle overlay to improve contrast for white text on the background image.
-- **Reduced motion** – Scroll-to-top and other motion respect `prefers-reduced-motion`.
-
----
-
-## About the original task
-
-This repo implements the Trufla full-stack developer task: code the provided Invision screens in mobile-first, semantic HTML, SCSS, and JavaScript. Responsive breakpoints (desktop, tablet, mobile) are included. You can use Invision Inspect for fonts, sizes, and assets; see the [Invision Inspect docs](https://support.invisionapp.com/hc/en-us/sections/360007928472-Inspect) if needed.
-
-![Screenshot](https://raw.githubusercontent.com/mamdouhramadan/trufla-task/main/screen-shot.png)
+- **Semantic HTML:** `<main>`, `<header>`, `<footer>`, `<nav>`, one `h1` per page.
+- **Skip link:** “Skip to main content” (visible on keyboard focus).
+- **Focus styles:** Visible outlines on links, buttons, and form controls.
+- **RTL:** `dir="rtl"` and `text-start` / logical properties for Arabic; Almarai font on `lang="ar"`.
+- **Dark mode:** Toggle with `class="dark"` on `<html>`; preference stored in `localStorage`.
+- **Reduced motion:** Marquee and other motion respect `prefers-reduced-motion`.
 
 ---
 

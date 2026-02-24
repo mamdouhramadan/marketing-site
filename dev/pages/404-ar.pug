@@ -9,7 +9,7 @@ block head
 
 block pageHeaderData(pageData)
   - pageData.title = isArabic ? 'الصفحة غير موجودة' : 'Page Not Found'
-  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: 'index.html' }, { label: '404', url: null }] : [{ label: 'Home', url: 'index.html' }, { label: '404', url: null }]
+  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: homeUrl }, { label: '404', url: null }] : [{ label: 'Home', url: homeUrl }, { label: '404', url: null }]
 
 block content
   - if (typeof isArabic === 'undefined') isArabic = true

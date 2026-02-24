@@ -1,0 +1,27 @@
+//- Shared team section. Usage: +teamSection(members, isArabic)
+//- members: array of { img, alt, name, role, bio, roleAr?, bioAr?, phone, email }
+mixin teamSection(members, isArabic)
+  section#team(class="bg-page dark:bg-gray-900 py-16 md:py-20")
+    div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center")
+      h2(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title")= isArabic ? 'فريقنا' : 'Our Team'
+      p(class="w-[90%] max-w-xl mx-auto mb-10 text-sm text-slate-500 dark:text-gray-400 leading-relaxed md:w-3/5")= isArabic ? 'تعرف على الأشخاص وراء Trufla. نركز على عمليات واضحة ودعم سريع وقوالب تساعدك على التعامل مع المدفوعات والمطالبات بثقة.' : 'Meet the people behind Trufla. We focus on clear processes, fast support, and templates that help you handle payments and claims with confidence.'
+      div(class="flex flex-nowrap overflow-x-auto gap-4 lg:grid lg:grid-cols-3 lg:overflow-visible pb-2 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 snap-x snap-mandatory items-stretch")
+        each member in members
+          - var roleText = (isArabic && member.roleAr) ? member.roleAr : member.role
+          - var bioText = (isArabic && member.bioAr) ? member.bioAr : member.bio
+          div(class="group shrink-0 min-w-[57.14%] lg:min-w-0 snap-center snap-always lg:snap-align-none flex flex-col items-center text-center p-8 md:p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md cursor-pointer transition-colors hover:border-secondary hover:bg-secondary")
+            img(class="w-24 h-24 rounded-full object-cover block" src=member.img alt=member.alt width="96" height="96" loading="lazy")
+            h3(class="text-2xl font-medium text-secondary dark:text-gray-100 mt-2 mb-0 transition-colors group-hover:text-white")= member.name
+            p(class="text-xl text-slate-500 dark:text-gray-400 m-0 transition-colors group-hover:text-white/85")= roleText
+            p(class="text-sm text-slate-500 dark:text-gray-400 w-3/4 mt-4 mb-0 leading-snug transition-colors group-hover:text-white/75")= bioText
+            div(class="flex items-center justify-center gap-4 mt-6 flex-wrap")
+              a(href="tel:" + member.phone.replace(/\s/g, '') aria-label="Phone" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+                span(class="fa fa-phone" aria-hidden="true")
+              a(href="mailto:" + member.email aria-label="Email" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+                span(class="fa fa-envelope" aria-hidden="true")
+              a(href="https://www.linkedin.com/" aria-label="LinkedIn" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+                span(class="fa fa-linkedin" aria-hidden="true")
+              a(href="#" aria-label="Dribbble" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+                span(class="fa fa-dribbble" aria-hidden="true")
+              a(href="#" aria-label="Twitter" class="text-slate-500 dark:text-gray-400 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 group-hover:text-white")
+                span(class="fa fa-twitter" aria-hidden="true")

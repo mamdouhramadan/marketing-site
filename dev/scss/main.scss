@@ -6,8 +6,9 @@ body {
   font-weight: normal;
 }
 
-// Arabic: use Almarai as main font when lang="ar" (e.g. login-ar, future Arabic pages)
-[lang="ar"] {
+// Arabic: use Almarai as main font when lang="ar" (body has its own font so we must set it explicitly)
+html[lang="ar"],
+html[lang="ar"] body {
   font-family: "Almarai", sans-serif;
 }
 

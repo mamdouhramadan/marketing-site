@@ -9,7 +9,7 @@ block head
 
 block pageHeaderData(pageData)
   - pageData.title = isArabic ? 'الأسعار' : 'Pricing'
-  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: 'index.html' }, { label: 'الأسعار', url: null }] : [{ label: 'Home', url: 'index.html' }, { label: 'Pricing', url: null }]
+  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: homeUrl }, { label: 'الأسعار', url: null }] : [{ label: 'Home', url: homeUrl }, { label: 'Pricing', url: null }]
 
 block content
   include ../data/pricing-data

@@ -14,9 +14,6 @@
 - var navCtaLabel = isArabic ? 'احصل على عرض سعر' : 'Get a Quote'
 - var navCtaHref = isArabic ? 'contact-ar.html' : 'contact.html'
 
-//- Footer "Company" column links (hrefs point to -ar.html when isArabic where available)
-- var footerCompanyLinks = isArabic ? [{ label: 'من نحن', href: 'about-ar.html' }, { label: 'الوظائف', href: '#', badge: 'نحن نوظف!' }, { label: 'اتصل بنا', href: 'contact-ar.html' }, { label: 'سياسة الخصوصية', href: '#' }] : [{ label: 'About us', href: 'about.html' }, { label: 'Careers', href: '#', badge: "We're hiring!" }, { label: 'Contact us', href: 'contact.html' }, { label: 'Privacy policy', href: '#' }]
-
 //- Footer section headings
 - var footerMenuHeading = isArabic ? 'القائمة' : 'Menu'
 
@@ -31,12 +28,13 @@
 - var newsletterButton = isArabic ? 'اشترك' : 'Subscribe'
 
 //- Footer copyright
-- var copyrightSuffix = isArabic ? 'جميع الحقوق محفوظة.' : 'All Right Reserved.'
-- var footerCompanyHeading = isArabic ? 'الشركة' : 'Company'
+- var copyrightSuffix = isArabic ? 'جميع الحقوق محفوظة.' : 'All Rights Reserved.'
 
 //- Accessibility / shared UI labels (skip link, aria-labels)
 - var skipToContentLabel = isArabic ? 'انتقل للمحتوى الرئيسي' : 'Skip to main content'
 - var navAriaLabel = isArabic ? 'التنقل الرئيسي' : 'Main navigation'
+- var mobileMenuAriaLabel = isArabic ? 'فتح القائمة' : 'Open menu'
+- var mobileMenuCloseAriaLabel = isArabic ? 'إغلاق القائمة' : 'Close menu'
 - var themeToggleAriaLabel = isArabic ? 'تبديل الوضع الداكن' : 'Toggle dark mode'
 - var scrollTopAriaLabel = isArabic ? 'انتقل للأعلى' : 'Scroll to top'
 - var scrollTopTitle = isArabic ? 'انتقل للأعلى' : 'Scroll to top'
@@ -94,7 +92,3 @@
 - var blogsPrevious = isArabic ? 'السابق' : 'Previous'
 - var blogsNext = isArabic ? 'التالي' : 'Next'
 - var blogsPaginationAria = isArabic ? 'ترقيم المدونة' : 'Blog pagination'
-
-- var otherLinks = [{ icon: 'fa fa-phone', number: '555-555-5555' }]
-
-- var cards = 3

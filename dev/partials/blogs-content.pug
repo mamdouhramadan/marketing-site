@@ -1,0 +1,37 @@
+//- Blogs listing content. Expects: blogs (from blogs-data), isArabic; variables from variables.pug (blogsPageTitle, blogsSearchPlaceholder, etc.)
+- if (typeof isArabic === 'undefined') isArabic = false
+section(class="bg-page dark:bg-gray-900 py-16 md:py-20")
+  div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
+    - var inputStyle = 'h-[46px] rounded-md border border-gray-500/30 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 outline-none focus:ring-2 focus:ring-primary px-3 text-sm'
+    div(class="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between mb-10")
+      div(class="flex flex-wrap items-center gap-3 flex-1 w-full")
+        label(for="blog-search" class="sr-only")= blogsSearchAriaLabel
+        div(class="flex items-center border border-gray-500/30 dark:border-gray-600 pl-3 gap-2 bg-white dark:bg-gray-800 h-[46px] rounded-md overflow-hidden max-w-md w-full focus-within:ring-2 focus-within:ring-primary")
+          span(class="fa fa-search text-gray-500 dark:text-gray-400 text-base" aria-hidden="true")
+          input#blog-search(type="search" placeholder=blogsSearchPlaceholder class="flex-1 min-w-0 w-full h-full outline-none text-gray-500 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 text-sm bg-transparent" aria-label=blogsSearchAriaLabel)
+        select#blog-category(aria-label=blogsFilterCategoryAria class=inputStyle + " w-full sm:w-auto min-w-[160px]")
+          option(value="")= blogsAllCategories
+          - var categories = []
+          each b in blogs
+            if categories.indexOf(b.category) === -1
+              - categories.push(b.category)
+          each cat in categories.sort()
+            option(value=cat)= cat
+      div(class="flex items-center gap-2")
+        label(for="blog-sort" class="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap")= blogsSortBy
+        select#blog-sort(aria-label=blogsSortAriaLabel class=inputStyle + " min-w-[160px]")
+          option(value="date-desc")= blogsSortDateNewest
+          option(value="date-asc")= blogsSortDateOldest
+          option(value="title-asc")= blogsSortTitleAZ
+          option(value="title-desc")= blogsSortTitleZA
+
+    div#blog-list(class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8")
+
+    nav#blog-pagination(aria-label=blogsPaginationAria class="flex flex-wrap items-center justify-center gap-2 mt-12")
+      button#blog-prev(type="button" class="px-4 py-2 rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50" disabled)= blogsPrevious
+      div#blog-pages(class="flex gap-1")
+      button#blog-next(type="button" class="px-4 py-2 rounded-md border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50")= blogsNext
+
+script.
+  window.__BLOGS__ = !{JSON.stringify(blogs)};
+  window.__BLOG_DETAIL_BASE__ = !{JSON.stringify(isArabic ? 'blog-detail-ar.html' : 'blog-detail.html')};

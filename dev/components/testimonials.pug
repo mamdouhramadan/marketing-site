@@ -6,16 +6,16 @@ section(class="bg-page dark:bg-gray-900 py-16 md:py-20")
   div(class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center")
     h2(class="text-secondary dark:text-gray-100 font-bold text-section mb-section-title text-center")= isArabic ? 'آراء عملائنا' : 'Our Testimonials'
     p(class="w-[90%] max-w-xl mx-auto mb-10 text-sm text-black/50 dark:text-gray-400 leading-relaxed md:w-3/5")= isArabic ? 'استمع من عملائنا الراضين عن فوائد استخدام Trufla. نحب أن نسمع من عملائنا.' : 'Hear from our satisfied customers about the benefits of using Trufla. We love hearing from our customers.'
-  div(class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8")
+  div(class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8")
     each t in testimonials
-      div(class="w-full max-w-sm space-y-4 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1")
+      div(class="w-full space-y-4 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 text-gray-500 dark:text-gray-400 transition-all duration-300 hover:-translate-y-1")
         div(class="flex gap-1" aria-hidden="true")
           - for (var i = 0; i < 5; i++)
             svg(xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 fill-primary text-primary")
               path(d=starPath)
         p(class="line-clamp-3")= '"' + t.quote + '"'
         div(class="flex items-center gap-2 pt-3")
-          img(class="size-10 rounded-full object-cover" src=t.image alt=t.name)
+          img(class="size-10 rounded-full object-cover" src=t.image alt=t.name loading="lazy")
           div
             p(class="font-medium text-gray-800 dark:text-gray-200")= t.name
             p(class="text-gray-500 dark:text-gray-400 text-xs")= t.role

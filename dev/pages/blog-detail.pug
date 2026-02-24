@@ -12,7 +12,7 @@ block head
 
 block pageHeaderData(pageData)
   - pageData.title = isArabic ? 'المدونة' : 'Blog'
-  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: 'index.html' }, { label: 'المدونة', url: 'blogs-ar.html' }, { label: 'المقال', url: null }] : [{ label: 'Home', url: 'index.html' }, { label: 'Blogs', url: 'blogs.html' }, { label: 'Post', url: null }]
+  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: homeUrl }, { label: 'المدونة', url: 'blogs-ar.html' }, { label: 'المقال', url: null }] : [{ label: 'Home', url: homeUrl }, { label: 'Blogs', url: 'blogs.html' }, { label: 'Post', url: null }]
 
 block content
   include ../data/blogs-data

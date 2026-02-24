@@ -1,7 +1,7 @@
-//- Shared login form content. Expects isArabic to be set by the page.
-main(class="flex items-center justify-center w-full px-4 min-h-[60vh]")
+//- Shared login form content. Expects isArabic, homeUrl to be set by the page/layout.
+div(class="flex items-center justify-center w-full px-4 min-h-[60vh]")
   form(class="flex w-full flex-col max-w-96" action="#" method="post")
-    a.mb-8(href="index.html" title="Trufla - Home")
+    a.mb-8(href=homeUrl title=isArabic ? 'ترافلا - الرئيسية' : 'Trufla - Home')
       img(class="size-10 w-10 h-10 dark:invert" src="./images/logo-icon.svg" alt="Trufla" width="40" height="40")
     p(class="mt-4 text-base text-gray-500/90 dark:text-gray-400")= isArabic ? 'الرجاء إدخال البريد الإلكتروني وكلمة المرور للدخول.' : 'Please enter email and password to access.'
     div(class="mt-10")
@@ -27,4 +27,4 @@ main(class="flex items-center justify-center w-full px-4 min-h-[60vh]")
       class="mt-8 py-3 w-full cursor-pointer rounded-md bg-primary text-white transition hover:bg-secondary"
     )= isArabic ? 'تسجيل الدخول' : 'Login'
     p(class="text-center py-8 text-gray-700 dark:text-gray-300")= isArabic ? 'ليس لديك حساب؟' : 'Don\'t have an account?'
-      a(href=isArabic ? 'signup-ar.html' : 'signup.html' class="text-primary hover:underline")= isArabic ? ' إنشاء حساب' : ' Sign up'
+      a(href="#" class="text-primary hover:underline")= isArabic ? ' إنشاء حساب' : ' Sign up'

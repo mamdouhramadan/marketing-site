@@ -9,7 +9,7 @@ block head
 
 block pageHeaderData(pageData)
   - pageData.title = isArabic ? 'تسجيل الدخول' : 'Sign in'
-  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: 'index.html' }, { label: 'تسجيل الدخول', url: null }] : [{ label: 'Home', url: 'index.html' }, { label: 'Sign in', url: null }]
+  - pageData.breadcrumbs = isArabic ? [{ label: 'الرئيسية', url: homeUrl }, { label: 'تسجيل الدخول', url: null }] : [{ label: 'Home', url: homeUrl }, { label: 'Sign in', url: null }]
 
 block content
   include ../partials/login-content
