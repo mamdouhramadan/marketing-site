@@ -51,7 +51,7 @@ gulp.task('css', function () {
 // Start Libraries and Framework Task
 // ====================================
 gulp.task('libs', function () {
-    return gulp.src(['dev/libs/normalize.css', 'dev/libs/font-awesome.css'])
+    return gulp.src(['dev/libs/normalize.css'])
         .pipe(sourcemap.init())
         .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(autoprefixer())
